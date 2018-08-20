@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA%E6%8E%A5%E6%94%B6/</loc>
+    <lastmod>2018-08-15T07:21:19.992Z</lastmod>
+    <data>
+        <display>
+        <title>STM32 UART IDLE中断异常的一种</title>
+        <pubTime>2018-08-15T05:49:18.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>USART</tag>
+         
+         
+           
+             
+              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/08/01/%E7%BB%98%E5%88%B6pcb%E6%9C%80%E5%90%8E%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84%E6%A3%80%E6%9F%A5/</loc>
+    <lastmod>2018-08-08T03:45:26.851Z</lastmod>
+    <data>
+        <display>
+        <title>绘制原理图与pcb最后需要做的检查</title>
+        <pubTime>2018-08-01T05:47:14.000Z</pubTime>
+        
+        <tag>PCB</tag>
+         
+         
+           
+             
+              <breadCrumb title="硬件" url="https://ihuifeng.cc/categories/%E7%A1%AC%E4%BB%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/07/30/%E5%AF%B9STM32Cube%E4%B8%8B%E7%94%9F%E6%88%90%E7%9A%84Makefile%E5%81%9A%E4%BF%AE%E6%94%B9/</loc>
+    <lastmod>2018-07-30T09:21:27.367Z</lastmod>
+    <data>
+        <display>
+        <title>为STM32CubeMX生成的Makefile添加静态链接库</title>
+        <pubTime>2018-07-30T07:33:52.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>Makefile</tag>
+         
+         
+           
+             
+              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/07/30/ssh%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-07-30T09:20:27.787Z</lastmod>
+    <data>
+        <display>
+        <title>ssh及其衍生工具的使用</title>
+        <pubTime>2018-07-30T07:50:00.000Z</pubTime>
+        
+        <tag>Tools</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tools" url="https://ihuifeng.cc/categories/Tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>
