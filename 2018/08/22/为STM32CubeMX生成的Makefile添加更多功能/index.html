@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="以下是原理图与PCB绘制完成后做的检查== 不定期更新 ==">
-<meta name="keywords" content="PCB">
+  <meta name="description" content="STM32CubeMX用起来特别舒服，谁用谁知道，但是STM32CubeMX生成的Makefile只能做到编译这个功能，想要下载还得手动敲一串命令，调试也是，每次重复输入指令完全不符合程序员“懒”的属性，下面我将介绍一下我的处理方式，让make有更多属性，可以一键下载，调试，顺便也把.ycm_extra_conf.py的文件放入工程里。">
+<meta name="keywords" content="STM32,Makefile">
 <meta property="og:type" content="article">
-<meta property="og:title" content="绘制原理图与pcb最后需要做的检查">
-<meta property="og:url" content="https://ihuifeng.cc/2018/08/01/绘制pcb最后需要做的检查/index.html">
+<meta property="og:title" content="为STM32CubeMX生成的Makefile添加下载，调试功能">
+<meta property="og:url" content="https://ihuifeng.cc/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/index.html">
 <meta property="og:site_name" content="ihuifeng">
-<meta property="og:description" content="以下是原理图与PCB绘制完成后做的检查== 不定期更新 ==">
+<meta property="og:description" content="STM32CubeMX用起来特别舒服，谁用谁知道，但是STM32CubeMX生成的Makefile只能做到编译这个功能，想要下载还得手动敲一串命令，调试也是，每次重复输入指令完全不符合程序员“懒”的属性，下面我将介绍一下我的处理方式，让make有更多属性，可以一键下载，调试，顺便也把.ycm_extra_conf.py的文件放入工程里。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-08T03:45:26.851Z">
+<meta property="og:updated_time" content="2018-08-22T13:36:37.412Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绘制原理图与pcb最后需要做的检查">
-<meta name="twitter:description" content="以下是原理图与PCB绘制完成后做的检查== 不定期更新 ==">
+<meta name="twitter:title" content="为STM32CubeMX生成的Makefile添加下载，调试功能">
+<meta name="twitter:description" content="STM32CubeMX用起来特别舒服，谁用谁知道，但是STM32CubeMX生成的Makefile只能做到编译这个功能，想要下载还得手动敲一串命令，调试也是，每次重复输入指令完全不符合程序员“懒”的属性，下面我将介绍一下我的处理方式，让make有更多属性，可以一键下载，调试，顺便也把.ycm_extra_conf.py的文件放入工程里。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ihuifeng.cc/2018/08/01/绘制pcb最后需要做的检查/"/>
+  <link rel="canonical" href="https://ihuifeng.cc/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>绘制原理图与pcb最后需要做的检查 | ihuifeng</title>
+  <title>为STM32CubeMX生成的Makefile添加下载，调试功能 | ihuifeng</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/01/绘制pcb最后需要做的检查/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张汇锋">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">绘制原理图与pcb最后需要做的检查
+          <h1 class="post-title" itemprop="name headline">为STM32CubeMX生成的Makefile添加下载，调试功能
               
             
           </h1>
@@ -343,24 +343,12 @@
                 
               
 
-              <time title="创建时间：2018-08-01 13:47:14" itemprop="dateCreated datePublished" datetime="2018-08-01T13:47:14+08:00">2018-08-01</time>
+              <time title="创建时间：2018-08-22 20:46:52 / 修改时间：21:36:37" itemprop="dateCreated datePublished" datetime="2018-08-22T20:46:52+08:00">2018-08-22</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-08 11:45:26" itemprop="dateModified" datetime="2018-08-08T11:45:26+08:00">2018-08-08</time>
               
             
           </span>
@@ -377,7 +365,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/硬件/" itemprop="url" rel="index"><span itemprop="name">硬件</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MCU/" itemprop="url" rel="index"><span itemprop="name">MCU</span></a></span>
 
                 
                 
@@ -411,17 +399,22 @@
       
 
       
-        <p>以下是原理图与PCB绘制完成后做的检查<br>== 不定期更新 ==<br><a id="more"></a></p>
-<h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><ol>
-<li>检查VDD、VSS是否接反</li>
-<li>核对串联在LED线路上的电阻是否存在以及阻值是否合适</li>
+        <p>STM32CubeMX用起来特别舒服，谁用谁知道，但是STM32CubeMX生成的Makefile只能做到编译这个功能，想要下载还得手动敲一串命令，调试也是，每次重复输入指令完全不符合程序员“懒”的属性，下面我将介绍一下我的处理方式，让make有更多属性，可以一键下载，调试，顺便也把.ycm_extra_conf.py的文件放入工程里。</p>
+<a id="more"></a>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ol>
+<li><code>make load</code>命令可以直接将固件下载到MCU里</li>
+<li><code>make debug</code>命令可以打开cgdb+JLinkGDBServer连接MCU调试，而且让程序直接停在main函数开头。</li>
+<li>把编程环境配置好，让vim+ycm打开就能完美工作。（其实就是加一个.ycm…文件）</li>
 </ol>
-<h2 id="导入PCB前后"><a href="#导入PCB前后" class="headerlink" title="导入PCB前后"></a>导入PCB前后</h2><ol>
-<li>检查元器件封装是否正确（从引脚排布、尺寸等方面）</li>
-</ol>
-<h2 id="绘制PCB"><a href="#绘制PCB" class="headerlink" title="绘制PCB"></a>绘制PCB</h2><ol>
-<li>检查连接器之间是否存在阻挡</li>
-<li>对于需要接线的连接器，需要考虑在丝印层为引脚加上名称说明</li>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h5 id="make-load命令下固件"><a href="#make-load命令下固件" class="headerlink" title="make load命令下固件"></a><code>make load</code>命令下固件</h5><p>这个需要配合JLinkExe来实现，JLinkExe可以执行commandfile.jlink脚本，所以事先将commandfile.jlink脚本编写好，然后往makefile里添加一条load目标，用于执行这个脚本，如下(里面的变量具体可见最后)：</p>
+<h5 id="make-debug命令直接调试"><a href="#make-debug命令直接调试" class="headerlink" title="make debug命令直接调试"></a><code>make debug</code>命令直接调试</h5><p>这一条目前我还没法做到一条命令调试，需要先使用<code>make jlinkgdbserver</code>打开gdb调试服务，然后再使用<code>make debug</code>打开cgdb然后连上gdg server，运行gdbinit脚本停在main函数开头，实现需求。</p>
+<h5 id="配置好编程环境"><a href="#配置好编程环境" class="headerlink" title="配置好编程环境"></a>配置好编程环境</h5><p>这里调是针对我用vim写代码用的，补全方面使用的是ycm，需要将.ycm_extra__conf.py文件放入project目录里，并往里面添加flags实现完美的补全，目前只是简单的将一个通用的.ycm_extra_conf.py复制进去，然后修改。</p>
+<p>makefile添加的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#####################################</span><br><span class="line"># download and debug application </span><br><span class="line">#####################################</span><br><span class="line">DEVICE = STM32L152CB</span><br><span class="line">IF = SWD</span><br><span class="line">SPEED = 4000</span><br><span class="line"></span><br><span class="line">.PHONY: debug</span><br><span class="line">debug:</span><br><span class="line">	gnome-terminal --title &quot;CGDB&quot; -x \</span><br><span class="line">	cgdb -d \</span><br><span class="line">	arm-none-eabi-gdb $(BUILD_DIR)/$(TARGET).elf</span><br><span class="line"></span><br><span class="line">.PHONY: jlinkgdbserver</span><br><span class="line">jlinkgdbserver:</span><br><span class="line">	gnome-terminal --title &quot;JLinkGDBServer&quot; -x \</span><br><span class="line">	JLinkGDBServer -device $(DEVICE) -if $(IF) -speed $(SPEED)</span><br><span class="line"></span><br><span class="line">.PHONY: load</span><br><span class="line">load:</span><br><span class="line">	JLinkExe -device $(DEVICE) -CommanderScript commandfile.jlink</span><br></pre></td></tr></table></figure></p>
+<p>commandfile.jlink内容如下（loadfile后面是hex文件，需要根据具体情况修改）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">si 1</span><br><span class="line">speed 4000</span><br><span class="line">r</span><br><span class="line">h</span><br><span class="line">loadfile build/smart_lock.hex</span><br><span class="line">r</span><br><span class="line">exit</span><br></pre></td></tr></table></figure></p>
+<p>.gdbinit内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 连接远程调试端口</span><br><span class="line">target remote :2331</span><br><span class="line"># 在main函数开头设置断点</span><br><span class="line">b main</span><br><span class="line"># 复位</span><br><span class="line">monitor reset</span><br><span class="line"># 运行</span><br><span class="line">continue</span><br></pre></td></tr></table></figure></p>
+<h2 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h2><p>由于这些工作都是重复性的劳动，所以我写了一个python脚本来帮我做这些工作，它载入旧的Makefile并生成带以上功能的新makefile，以及生成相关的文件，如commandfile.jlink、.gdbinit、.ycm_extra_conf.py，已经开源到github上，传送门在这里。<br><a href="https://github.com/SgrrZhf/stm32_auto_debug" target="_blank" rel="noopener">https://github.com/SgrrZhf/stm32_auto_debug</a></p>
+<h2 id="后期优化"><a href="#后期优化" class="headerlink" title="后期优化"></a>后期优化</h2><ol>
+<li>生成已经加入合适flags的.ycm_extra_conf.py文件，开箱即用</li>
 </ol>
 
       
@@ -443,7 +436,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PCB/" rel="tag"># PCB</a>
+            <a href="/tags/STM32/" rel="tag"># STM32</a>
+          
+            <a href="/tags/Makefile/" rel="tag"># Makefile</a>
           
         </div>
       
@@ -456,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/30/ssh及其衍生工具的使用/" rel="next" title="ssh及其衍生工具的使用">
-                <i class="fa fa-chevron-left"></i> ssh及其衍生工具的使用
+              <a href="/2018/08/15/STM32_UART_IDLE_DMA接收/" rel="next" title="STM32 UART IDLE中断异常的一种">
+                <i class="fa fa-chevron-left"></i> STM32 UART IDLE中断异常的一种
               </a>
             
           </div>
@@ -465,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/15/STM32_UART_IDLE_DMA接收/" rel="prev" title="STM32 UART IDLE中断异常的一种">
-                STM32 UART IDLE中断异常的一种 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -616,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理图"><span class="nav-number">1.</span> <span class="nav-text">原理图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入PCB前后"><span class="nav-number">2.</span> <span class="nav-text">导入PCB前后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制PCB"><span class="nav-number">3.</span> <span class="nav-text">绘制PCB</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#make-load命令下固件"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">make load命令下固件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#make-debug命令直接调试"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">make debug命令直接调试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置好编程环境"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">配置好编程环境</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际使用"><span class="nav-number">3.</span> <span class="nav-text">实际使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后期优化"><span class="nav-number">4.</span> <span class="nav-text">后期优化</span></a></li></ol></div>
             
 
           </div>

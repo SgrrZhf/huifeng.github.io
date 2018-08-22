@@ -3,6 +3,50 @@
 
 
     
+  <url>
+    <loc>https://ihuifeng.cc/2018/08/22/%E4%B8%BASTM32CubeMX%E7%94%9F%E6%88%90%E7%9A%84Makefile%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD/</loc>
+    <lastmod>2018-08-22T13:36:37.412Z</lastmod>
+    <data>
+        <display>
+        <title>为STM32CubeMX生成的Makefile添加下载，调试功能</title>
+        <pubTime>2018-08-22T12:46:52.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>Makefile</tag>
+         
+         
+           
+             
+              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/07/30/%E5%AF%B9STM32Cube%E4%B8%8B%E7%94%9F%E6%88%90%E7%9A%84Makefile%E5%81%9A%E4%BF%AE%E6%94%B9/</loc>
+    <lastmod>2018-08-22T13:09:05.925Z</lastmod>
+    <data>
+        <display>
+        <title>为STM32CubeMX生成的Makefile添加静态链接库</title>
+        <pubTime>2018-07-30T07:33:52.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>Makefile</tag>
+         
+         
+           
+             
+              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -41,28 +85,6 @@
            
              
               <breadCrumb title="硬件" url="https://ihuifeng.cc/categories/%E7%A1%AC%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ihuifeng.cc/2018/07/30/%E5%AF%B9STM32Cube%E4%B8%8B%E7%94%9F%E6%88%90%E7%9A%84Makefile%E5%81%9A%E4%BF%AE%E6%94%B9/</loc>
-    <lastmod>2018-07-30T09:21:27.367Z</lastmod>
-    <data>
-        <display>
-        <title>为STM32CubeMX生成的Makefile添加静态链接库</title>
-        <pubTime>2018-07-30T07:33:52.000Z</pubTime>
-        
-        <tag>STM32</tag>
-         
-        <tag>Makefile</tag>
-         
-         
-           
-             
-              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
           
         </display>
     </data>
