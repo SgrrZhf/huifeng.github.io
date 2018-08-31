@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://ihuifeng.cc/2018/08/30/AT%E6%8C%87%E4%BB%A4%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2018-08-31T02:17:20.444Z</lastmod>
+    <data>
+        <display>
+        <title>AT指令编程（数据驱动的方式）</title>
+        <pubTime>2018-08-30T12:28:19.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>Methodology</tag>
+         
+        <tag>AT</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://ihuifeng.cc/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ihuifeng.cc/2018/08/22/%E4%B8%BASTM32CubeMX%E7%94%9F%E6%88%90%E7%9A%84Makefile%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD/</loc>
     <lastmod>2018-08-22T13:36:37.412Z</lastmod>
     <data>
