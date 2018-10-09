@@ -109,7 +109,7 @@
 
 
   <meta name="description" content="USART是一个很常用的外设，很多情况下，使用USART接收帧数据的时候并不知道需要接收的帧数据有多长，例如Modbus协议帧，或者AT指令的响应帧，这时就需要接收方主动识别帧结束。STM32的USART外设有一个功能就是IDLE中断，在USART接收到数据后出现空闲帧就会触发。通过IDLE中断配合DMA接收理论上可以完美实现USART不定长数据的接收。但是在实际操作中我却遇到了IDLE中断异常触">
-<meta name="keywords" content="STM32,USART">
+<meta name="keywords" content="arm,STM32,USART">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STM32 UART IDLE中断异常的一种">
 <meta property="og:url" content="https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA接收/index.html">
@@ -118,7 +118,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ihuifeng.cc/images/normal.jpeg">
 <meta property="og:image" content="https://ihuifeng.cc/images/abnormal.jpeg">
-<meta property="og:updated_time" content="2018-08-15T07:21:19.992Z">
+<meta property="og:updated_time" content="2018-10-09T09:46:30.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STM32 UART IDLE中断异常的一种">
 <meta name="twitter:description" content="USART是一个很常用的外设，很多情况下，使用USART接收帧数据的时候并不知道需要接收的帧数据有多长，例如Modbus协议帧，或者AT指令的响应帧，这时就需要接收方主动识别帧结束。STM32的USART外设有一个功能就是IDLE中断，在USART接收到数据后出现空闲帧就会触发。通过IDLE中断配合DMA接收理论上可以完美实现USART不定长数据的接收。但是在实际操作中我却遇到了IDLE中断异常触">
@@ -346,12 +346,24 @@
                 
               
 
-              <time title="创建时间：2018-08-15 13:49:18 / 修改时间：15:21:19" itemprop="dateCreated datePublished" datetime="2018-08-15T13:49:18+08:00">2018-08-15</time>
+              <time title="创建时间：2018-08-15 13:49:18" itemprop="dateCreated datePublished" datetime="2018-08-15T13:49:18+08:00">2018-08-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-09 17:46:30" itemprop="dateModified" datetime="2018-10-09T17:46:30+08:00">2018-10-09</time>
               
             
           </span>
@@ -429,6 +441,8 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/arm/" rel="tag"># arm</a>
           
             <a href="/tags/STM32/" rel="tag"># STM32</a>
           
@@ -527,7 +541,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -548,7 +562,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -575,7 +591,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

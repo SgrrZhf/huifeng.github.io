@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="以下是原理图与PCB绘制完成后做的检查== 不定期更新 ==">
-<meta name="keywords" content="PCB">
+  <meta name="description" content="这里记录我在学习u-boot移植过程中遇到的坑以及解决办法 u-boot1.1.6 交叉编译工具链的选择 hard FP 与 software FP">
+<meta name="keywords" content="arm,u-boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="绘制原理图与pcb最后需要做的检查">
-<meta property="og:url" content="https://ihuifeng.cc/2018/08/01/绘制pcb最后需要做的检查/index.html">
+<meta property="og:title" content="U-BOOT编译移植遇到的坑">
+<meta property="og:url" content="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/index.html">
 <meta property="og:site_name" content="ihuifeng">
-<meta property="og:description" content="以下是原理图与PCB绘制完成后做的检查== 不定期更新 ==">
+<meta property="og:description" content="这里记录我在学习u-boot移植过程中遇到的坑以及解决办法 u-boot1.1.6 交叉编译工具链的选择 hard FP 与 software FP">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-08T03:45:26.851Z">
+<meta property="og:updated_time" content="2018-10-09T09:46:31.101Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绘制原理图与pcb最后需要做的检查">
-<meta name="twitter:description" content="以下是原理图与PCB绘制完成后做的检查== 不定期更新 ==">
+<meta name="twitter:title" content="U-BOOT编译移植遇到的坑">
+<meta name="twitter:description" content="这里记录我在学习u-boot移植过程中遇到的坑以及解决办法 u-boot1.1.6 交叉编译工具链的选择 hard FP 与 software FP">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ihuifeng.cc/2018/08/01/绘制pcb最后需要做的检查/"/>
+  <link rel="canonical" href="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>绘制原理图与pcb最后需要做的检查 | ihuifeng</title>
+  <title>U-BOOT编译移植遇到的坑 | ihuifeng</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/01/绘制pcb最后需要做的检查/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张汇锋">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">绘制原理图与pcb最后需要做的检查
+          <h1 class="post-title" itemprop="name headline">U-BOOT编译移植遇到的坑
               
             
           </h1>
@@ -343,24 +343,12 @@
                 
               
 
-              <time title="创建时间：2018-08-01 13:47:14" itemprop="dateCreated datePublished" datetime="2018-08-01T13:47:14+08:00">2018-08-01</time>
+              <time title="创建时间：2018-10-09 17:28:58 / 修改时间：17:46:31" itemprop="dateCreated datePublished" datetime="2018-10-09T17:28:58+08:00">2018-10-09</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-08 11:45:26" itemprop="dateModified" datetime="2018-08-08T11:45:26+08:00">2018-08-08</time>
               
             
           </span>
@@ -377,7 +365,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/硬件/" itemprop="url" rel="index"><span itemprop="name">硬件</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/u-boot/" itemprop="url" rel="index"><span itemprop="name">u-boot</span></a></span>
 
                 
                 
@@ -411,18 +399,18 @@
       
 
       
-        <p>以下是原理图与PCB绘制完成后做的检查<br>== 不定期更新 ==<br><a id="more"></a></p>
-<h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><ol>
-<li>检查VDD、VSS是否接反</li>
-<li>核对串联在LED线路上的电阻是否存在以及阻值是否合适</li>
+        <p>这里记录我在学习u-boot移植过程中遇到的坑以及解决办法</p>
+<h5 id="u-boot1-1-6"><a href="#u-boot1-1-6" class="headerlink" title="u-boot1.1.6"></a>u-boot1.1.6</h5><ol>
+<li>交叉编译工具链的选择</li>
+<li>hard FP 与 software FP<a id="more"></a><!-- more -->
+</li>
 </ol>
-<h2 id="导入PCB前后"><a href="#导入PCB前后" class="headerlink" title="导入PCB前后"></a>导入PCB前后</h2><ol>
-<li>检查元器件封装是否正确（从引脚排布、尺寸等方面）</li>
+<h3 id="u-boot1-1-6-1"><a href="#u-boot1-1-6-1" class="headerlink" title="u-boot1.1.6"></a>u-boot1.1.6</h3><ol>
+<li>交叉编译工具链的选择<br>由于u-boot1.1.6版本的问题，不能选择eabi标准的编译器(我在编译支持nand flash新版本代码时遇到各种问题),最终选择的版本是 scratchbox-toolchain-arm-gcc4.1-uclibc20061004-1.0.4-i386.tar.gz,下载地址：<a href="http://www.scratchbox.org/download/files/sbox-releases/branches/apophis/r4/tarball/" target="_blank" rel="noopener">http://www.scratchbox.org/download/files/sbox-releases/branches/apophis/r4/tarball/</a></li>
+<li>hard FP 与 software FP<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-ld: ERROR: /home/huifeng/opt/scratchbox_old/scratchbox/compilers/arm-gcc4.1-uclibc20061004/bin/../lib/gcc/arm-linux-uclibc/4.1.1/libgcc.a(_udivdi3.o) uses hardware FP, whereas u-boot uses software FP</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="绘制PCB"><a href="#绘制PCB" class="headerlink" title="绘制PCB"></a>绘制PCB</h2><ol>
-<li>检查连接器之间是否存在阻挡</li>
-<li>对于需要接线的连接器，需要考虑在丝印层为引脚加上名称说明</li>
-</ol>
+<p>由于工具链提供的libgcc.a使用的是hardfloat，u-boot1.1.6编译时给定的参数有-msoft-float，只能是在cpu/arm920t/config.mk中把这个参数去掉(这可能会导致浮点计算出问题，不确定，至少编译可以通过)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PLATFORM_RELFLAGS += -fno-strict-aliasing  -fno-common -ffixed-r8</span><br><span class="line"></span><br><span class="line">PLATFORM_CPPFLAGS += -march=armv4</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -443,7 +431,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PCB/" rel="tag"># PCB</a>
+            <a href="/tags/arm/" rel="tag"># arm</a>
+          
+            <a href="/tags/u-boot/" rel="tag"># u-boot</a>
           
         </div>
       
@@ -456,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/30/ssh及其衍生工具的使用/" rel="next" title="ssh及其衍生工具的使用">
-                <i class="fa fa-chevron-left"></i> ssh及其衍生工具的使用
+              <a href="/2018/08/30/AT指令数据驱动编程总结/" rel="next" title="AT指令编程（数据驱动的方式）">
+                <i class="fa fa-chevron-left"></i> AT指令编程（数据驱动的方式）
               </a>
             
           </div>
@@ -465,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/15/STM32_UART_IDLE_DMA接收/" rel="prev" title="STM32 UART IDLE中断异常的一种">
-                STM32 UART IDLE中断异常的一种 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理图"><span class="nav-number">1.</span> <span class="nav-text">原理图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入PCB前后"><span class="nav-number">2.</span> <span class="nav-text">导入PCB前后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制PCB"><span class="nav-number">3.</span> <span class="nav-text">绘制PCB</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#u-boot1-1-6"><span class="nav-number">1.</span> <span class="nav-text">u-boot1.1.6</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u-boot1-1-6-1"><span class="nav-number"></span> <span class="nav-text">u-boot1.1.6</span></a></div>
             
 
           </div>
