@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="ihuifeng">
 <meta property="og:description" content="这里记录我在学习linux-kernel移植过程中遇到的坑以及解决办法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-13T13:52:52.791Z">
+<meta property="og:updated_time" content="2018-10-13T14:03:57.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux-kernel编译遇到的坑">
 <meta name="twitter:description" content="这里记录我在学习linux-kernel移植过程中遇到的坑以及解决办法">
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="创建时间：2018-10-13 20:57:02 / 修改时间：21:52:52" itemprop="dateCreated datePublished" datetime="2018-10-13T20:57:02+08:00">2018-10-13</time>
+              <time title="创建时间：2018-10-13 20:57:02 / 修改时间：22:03:57" itemprop="dateCreated datePublished" datetime="2018-10-13T20:57:02+08:00">2018-10-13</time>
             
 
             
@@ -410,6 +410,11 @@
 </li>
 </ol>
 <p>见：<a href="http://lxiaogao.lofter.com/post/1cc6a101_4f92aa1" target="_blank" rel="noopener">http://lxiaogao.lofter.com/post/1cc6a101_4f92aa1</a></p>
+<ol start="3">
+<li>pcap_isr_work问题<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drivers/mfd/ezx-pcap.c: In function &apos;pcap_isr_work&apos;:</span><br><span class="line">drivers/mfd/ezx-pcap.c:205: error: implicit declaration of function &apos;irq_to_gpio&apos;</span><br><span class="line">scripts/Makefile.build:283: recipe for target &apos;drivers/mfd/ezx-pcap.o&apos; failed</span><br><span class="line">make[2]: *** [drivers/mfd/ezx-pcap.o] Error 1</span><br><span class="line">scripts/Makefile.build:419: recipe for target &apos;drivers/mfd&apos; failed</span><br><span class="line">make[1]: *** [drivers/mfd] Error 2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>见：<a href="https://blog.csdn.net/Linuxrc/article/details/51969542" target="_blank" rel="noopener">https://blog.csdn.net/Linuxrc/article/details/51969542</a></p>
 
       
     </div>
