@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="ihuifeng">
 <meta property="og:description" content="这里记录我在学习linux-kernel移植过程中遇到的坑以及解决办法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-13T13:01:14.009Z">
+<meta property="og:updated_time" content="2018-10-13T13:52:52.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux-kernel编译遇到的坑">
 <meta name="twitter:description" content="这里记录我在学习linux-kernel移植过程中遇到的坑以及解决办法">
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="创建时间：2018-10-13 20:57:02 / 修改时间：21:01:14" itemprop="dateCreated datePublished" datetime="2018-10-13T20:57:02+08:00">2018-10-13</time>
+              <time title="创建时间：2018-10-13 20:57:02 / 修改时间：21:52:52" itemprop="dateCreated datePublished" datetime="2018-10-13T20:57:02+08:00">2018-10-13</time>
             
 
             
@@ -405,6 +405,11 @@
 </li>
 </ol>
 <p>将if (!defined(@val))改为if (!@val)，再次编译就 OK。<br>见：<a href="http://sunyongfeng.com/201701/programmer/linux/kernel_compile_fail.html" target="_blank" rel="noopener">http://sunyongfeng.com/201701/programmer/linux/kernel_compile_fail.html</a></p>
+<ol start="2">
+<li>eeti_ts_irq_active问题<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">drivers/input/touchscreen/eeti_ts.c: In function &apos;eeti_ts_irq_active&apos;:</span><br><span class="line">drivers/input/touchscreen/eeti_ts.c:65: error: implicit declaration of function &apos;irq_to_gpio&apos;</span><br><span class="line">scripts/Makefile.build:289: recipe for target &apos;drivers/input/touchscreen/eeti_ts.o&apos; failed</span><br><span class="line">make[3]: *** [drivers/input/touchscreen/eeti_ts.o] Error 1</span><br><span class="line">scripts/Makefile.build:419: recipe for target &apos;drivers/input/touchscreen&apos; failed</span><br><span class="line">make[2]: *** [drivers/input/touchscreen] Error 2</span><br><span class="line">scripts/Makefile.build:419: recipe for target &apos;drivers/input&apos; failed</span><br><span class="line">make[1]: *** [drivers/input] Error 2</span><br><span class="line">Makefile:922: recipe for target &apos;drivers&apos; failed</span><br><span class="line">make: *** [drivers] Error 2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>见：<a href="http://lxiaogao.lofter.com/post/1cc6a101_4f92aa1" target="_blank" rel="noopener">http://lxiaogao.lofter.com/post/1cc6a101_4f92aa1</a></p>
 
       
     </div>
