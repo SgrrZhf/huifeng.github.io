@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="这里记录我在学习u-boot移植过程中遇到的坑以及解决办法 u-boot1.1.6 交叉编译工具链的选择 hard FP 与 software FP">
-<meta name="keywords" content="arm,u-boot">
+  <meta name="description" content="之前我在使用STM32的时候就遇到调用HAL__Delay时无法跳出的问题,程序就直接跑死在里面了，后来这个问题被规避掉了，现在在新程序里又一次遇到这个问题，我决定将其解决掉！">
+<meta name="keywords" content="arm,STM32">
 <meta property="og:type" content="article">
-<meta property="og:title" content="U-BOOT编译移植遇到的坑">
-<meta property="og:url" content="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/index.html">
+<meta property="og:title" content="Hal_Delay在FreeRTOS下无法跳出的">
+<meta property="og:url" content="https://ihuifeng.cc/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/index.html">
 <meta property="og:site_name" content="ihuifeng">
-<meta property="og:description" content="这里记录我在学习u-boot移植过程中遇到的坑以及解决办法 u-boot1.1.6 交叉编译工具链的选择 hard FP 与 software FP">
+<meta property="og:description" content="之前我在使用STM32的时候就遇到调用HAL__Delay时无法跳出的问题,程序就直接跑死在里面了，后来这个问题被规避掉了，现在在新程序里又一次遇到这个问题，我决定将其解决掉！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-09T09:46:31.101Z">
+<meta property="og:updated_time" content="2018-10-20T06:46:49.320Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="U-BOOT编译移植遇到的坑">
-<meta name="twitter:description" content="这里记录我在学习u-boot移植过程中遇到的坑以及解决办法 u-boot1.1.6 交叉编译工具链的选择 hard FP 与 software FP">
+<meta name="twitter:title" content="Hal_Delay在FreeRTOS下无法跳出的">
+<meta name="twitter:description" content="之前我在使用STM32的时候就遇到调用HAL__Delay时无法跳出的问题,程序就直接跑死在里面了，后来这个问题被规避掉了，现在在新程序里又一次遇到这个问题，我决定将其解决掉！">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/"/>
+  <link rel="canonical" href="https://ihuifeng.cc/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>U-BOOT编译移植遇到的坑 | ihuifeng</title>
+  <title>Hal_Delay在FreeRTOS下无法跳出的 | ihuifeng</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张汇锋">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">U-BOOT编译移植遇到的坑
+          <h1 class="post-title" itemprop="name headline">Hal_Delay在FreeRTOS下无法跳出的
               
             
           </h1>
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="创建时间：2018-10-09 17:28:58 / 修改时间：17:46:31" itemprop="dateCreated datePublished" datetime="2018-10-09T17:28:58+08:00">2018-10-09</time>
+              <time title="创建时间：2018-10-20 14:21:39 / 修改时间：14:46:49" itemprop="dateCreated datePublished" datetime="2018-10-20T14:21:39+08:00">2018-10-20</time>
             
 
             
@@ -365,7 +365,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/u-boot/" itemprop="url" rel="index"><span itemprop="name">u-boot</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MCU/" itemprop="url" rel="index"><span itemprop="name">MCU</span></a></span>
 
                 
                 
@@ -399,18 +399,9 @@
       
 
       
-        <p>这里记录我在学习u-boot移植过程中遇到的坑以及解决办法</p>
-<h5 id="u-boot1-1-6"><a href="#u-boot1-1-6" class="headerlink" title="u-boot1.1.6"></a>u-boot1.1.6</h5><ol>
-<li>交叉编译工具链的选择</li>
-<li>hard FP 与 software FP<a id="more"></a><!-- more -->
-</li>
-</ol>
-<h3 id="u-boot1-1-6-1"><a href="#u-boot1-1-6-1" class="headerlink" title="u-boot1.1.6"></a>u-boot1.1.6</h3><ol>
-<li>交叉编译工具链的选择<br>由于u-boot1.1.6版本的问题，不能选择eabi标准的编译器(我在编译支持nand flash新版本代码时遇到各种问题),最终选择的版本是 scratchbox-toolchain-arm-gcc4.1-uclibc20061004-1.0.4-i386.tar.gz,下载地址：<a href="http://www.scratchbox.org/download/files/sbox-releases/branches/apophis/r4/tarball/" target="_blank" rel="noopener">http://www.scratchbox.org/download/files/sbox-releases/branches/apophis/r4/tarball/</a></li>
-<li>hard FP 与 software FP<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-ld: ERROR: /home/huifeng/opt/scratchbox_old/scratchbox/compilers/arm-gcc4.1-uclibc20061004/bin/../lib/gcc/arm-linux-uclibc/4.1.1/libgcc.a(_udivdi3.o) uses hardware FP, whereas u-boot uses software FP</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>由于工具链提供的libgcc.a使用的是hardfloat，u-boot1.1.6编译时给定的参数有-msoft-float，只能是在cpu/arm920t/config.mk中把这个参数去掉(这可能会导致浮点计算出问题，不确定，至少编译可以通过)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PLATFORM_RELFLAGS += -fno-strict-aliasing  -fno-common -ffixed-r8</span><br><span class="line"></span><br><span class="line">PLATFORM_CPPFLAGS += -march=armv4</span><br></pre></td></tr></table></figure></p>
+        <p>之前我在使用STM32的时候就遇到调用HAL__Delay时无法跳出的问题,程序就直接跑死在里面了，后来这个问题被规避掉了，现在在新程序里又一次遇到这个问题，我决定将其解决掉！<br><a id="more"></a></p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>其实最后原因很简单，就是Timebase Source使用的定时器中断优先级太低了，在FreeRTOS里被RTOS屏蔽掉了。将其优先级调成最高即可。<br>通过查看stm32f1xx_hal_conf.h 里TICK_INT_PRIORITY这个值，这里代表了Timebase  Source 使用的定时器中断的优先级，在HAL_Init()-&gt;HAL_InitTick()被调用，如果不是0，将其设置成0即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define  TICK_INT_PRIORITY            ((uint32_t)0)    /*!&lt; tick interrupt priority (lowest by default)  */</span><br></pre></td></tr></table></figure></p>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>这个问题出现的原因是使用STM32CubeMX不当造成的。<br>勾选FREERTOS Enable之后，最好将Timebase设置成非SysTick，就不会出现这个问题。<br>如果最开始没有勾选SysTick，后面手动移植的时候，一定要将TICK_INT_PRIORITY设置成0，因为在勾选FREERTOS Enable后，SysTick的优先级会被设置15，这时如果Timebase Source如果是SysTick时，TICK_INT_PRIORITY就会被设置成15，然后手动修改Timebase Source的过程中很容易被忽视掉，导致上述问题。</p>
 
       
     </div>
@@ -433,7 +424,7 @@
           
             <a href="/tags/arm/" rel="tag"># arm</a>
           
-            <a href="/tags/u-boot/" rel="tag"># u-boot</a>
+            <a href="/tags/STM32/" rel="tag"># STM32</a>
           
         </div>
       
@@ -446,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/30/AT指令数据驱动编程总结/" rel="next" title="AT指令编程（数据驱动的方式）">
-                <i class="fa fa-chevron-left"></i> AT指令编程（数据驱动的方式）
+              <a href="/2018/10/13/linux-kernel编译遇到的坑/" rel="next" title="linux-kernel编译遇到的坑">
+                <i class="fa fa-chevron-left"></i> linux-kernel编译遇到的坑
               </a>
             
           </div>
@@ -455,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/13/linux-kernel编译遇到的坑/" rel="prev" title="linux-kernel编译遇到的坑">
-                linux-kernel编译遇到的坑 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -622,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#u-boot1-1-6"><span class="nav-number">1.</span> <span class="nav-text">u-boot1.1.6</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u-boot1-1-6-1"><span class="nav-number"></span> <span class="nav-text">u-boot1.1.6</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">1.</span> <span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因"><span class="nav-number">2.</span> <span class="nav-text">问题原因</span></a></li></ol></div>
             
 
           </div>
