@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="FreeRTOS中用来做资源保护的一般是Mutex，对于有些情况，Mutex并不能够很好的完成任务">
+<meta name="keywords" content="STM32,FreeRTOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FreeRTOS中利用Binary_Sepahore_做资源保护">
+<meta property="og:url" content="https://ihuifeng.cc/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/index.html">
+<meta property="og:site_name" content="ihuifeng">
+<meta property="og:description" content="FreeRTOS中用来做资源保护的一般是Mutex，对于有些情况，Mutex并不能够很好的完成任务">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-25T15:00:03.655Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FreeRTOS中利用Binary_Sepahore_做资源保护">
+<meta name="twitter:description" content="FreeRTOS中用来做资源保护的一般是Mutex，对于有些情况，Mutex并不能够很好的完成任务">
+
+
+
+
+
+
+  <link rel="canonical" href="https://ihuifeng.cc/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>FreeRTOS中利用Binary_Sepahore_做资源保护 | ihuifeng</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ihuifeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">汇锋的点点滴滴</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张汇锋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ihuifeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FreeRTOS中利用Binary_Sepahore_做资源保护
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-25 21:41:20 / 修改时间：23:00:03" itemprop="dateCreated datePublished" datetime="2018-11-25T21:41:20+08:00">2018-11-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>FreeRTOS中用来做资源保护的一般是Mutex，对于有些情况，Mutex并不能够很好的完成任务<br><a id="more"></a></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一般而言，FreeRTOS里用来做资源保护的都是Mutex信号量，但Mutex并非万能，而且资源保护也不是非要Mutex不可。Binary Semaphore也可以实现资源的保护。(以下内容用Binary代替Binary Semaphore)</p>
+<h3 id="资源占用模型"><a href="#资源占用模型" class="headerlink" title="资源占用模型"></a>资源占用模型</h3><p>对于我而言，我会用两种模型来描述两种不同的资源占用方式，这里的资源可以看做一个外设加上一个特定的内存区域</p>
+<ol>
+<li>调用function()&gt;开始使用某一资源&gt;使用完成&gt;从function()返回 </li>
+<li>调用function()&gt;开始使用某一资源&gt;从function()返回 | 发生中断&gt;资源使用完成</li>
+</ol>
+<p>这两种方式的不同在于一个是同步的，一个是异步的。对于第一种方式，一般是使用查询的方式，对于第二种方式则一般是使用中断或者DMA的方式。第一种，使用Mutex，就可以很好的实现在FreeRTOS下多线程（任务）下资源的保护，实现线程安全。而第二种，由于Mutex无法在中断中归还，所以无法实现资源的保护，不仅线程安全无法做到，单线程下都无法保证资源的安全。在这种模式下利用Binary进行资源保护则可行。简要来说就是创建一个Binary，并Give，使用资源之前Take Binary，在资源使用完成产生的中断中Give这个Binary。</p>
+<h3 id="实际的例子。"><a href="#实际的例子。" class="headerlink" title="实际的例子。"></a>实际的例子。</h3><p>STM32上一个通过USART1打印日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void logging_write(const char* format, ...)</span><br><span class="line">&#123;</span><br><span class="line">    size_t len;</span><br><span class="line"></span><br><span class="line">    va_list list;</span><br><span class="line">    va_start(list, format); //取参</span><br><span class="line">    len = vsprintf(cache, format, list);//格式化输出到cache中</span><br><span class="line">    serial_write(&amp;Serial1, (uint8_t*)cache, len);//通过USART1发送</span><br><span class="line">    va_end(list);//结束取参</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这个function中，使用了一个全局的cache[]和USART1</p>
+<ol>
+<li>假设这个USART1是通过查询的方式发送，那么这个函数是同步的，意思就是函数返回意味着发送完成。此时，使用Mutex进行资源的保护就可以实现线程安全。在va_start之后Take Mutex，在va_end之前Give Mutex。</li>
+<li>假设这个USART1是通过DMA方式发送，那么这个函数就是异步的，函数返回并不意味着发送就完成了，这个时候如果再次调用这个函数将破坏掉cache，而且Mutex也没法用，应为DMA发送完成后产生的中断也不能对Mutex进行GiveFromISR </li>
+<li>这个时候利用Binary，在一开始创建Binary，并且Give。这是在va_start之后Take这个Binary。在USART发送完成中断里GiveFromISAR这个Binary。在这种情况下，函数返回之后在立即调用会Take不到，处于阻塞状态（如果设置了超时的话）。在一定程度上提高了效率。并且线程安全。</li>
+</ol>
+<p>这是实际的打印函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">void logging_write(const char* format, ...)</span><br><span class="line">&#123;</span><br><span class="line">    size_t len;</span><br><span class="line">    if (PrintBinary == NULL) &#123;</span><br><span class="line">        PrintBinary = xSemaphoreCreateBinary();</span><br><span class="line">        xSemaphoreGive(PrintBinary);</span><br><span class="line">        assert_param(PrintBinary != NULL);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (xSemaphoreTake(PrintBinary, MAX_MUTEX_WAIT_TICKS) != pdPASS)</span><br><span class="line">        return;</span><br><span class="line">    va_list list;</span><br><span class="line">    va_start(list, format);</span><br><span class="line">    len = vsprintf(cache, format, list);</span><br><span class="line">    serial_write(&amp;Serial1, (uint8_t*)cache, len);</span><br><span class="line">    va_end(list);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void logging_unprotect()</span><br><span class="line">&#123;</span><br><span class="line">    portBASE_TYPE need = pdFALSE;</span><br><span class="line"></span><br><span class="line">    xSemaphoreGiveFromISR(PrintBinary, &amp;need);</span><br><span class="line">    if (need == pdTRUE) &#123;</span><br><span class="line">        taskYIELD();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart)</span><br><span class="line">&#123;</span><br><span class="line">    if (huart-&gt;Instance == USART1) &#123;</span><br><span class="line">        logging_unprotect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个测试任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void logging_test(void *argv)</span><br><span class="line">&#123;</span><br><span class="line">    while(1)&#123;</span><br><span class="line">        __Logging_I(&quot;test1&quot;, &quot;this is binary test I&quot;);</span><br><span class="line">        __Logging_D(&quot;test1&quot;, &quot;this is binary test D&quot;);</span><br><span class="line">        __Logging_E(&quot;test1&quot;, &quot;this is binary test E&quot;);</span><br><span class="line">        __Logging_W(&quot;test1&quot;, &quot;this is binary test W&quot;);</span><br><span class="line">        vTaskDelay(MS2TICK(1000));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void test_thread(void* argv)</span><br><span class="line">&#123;</span><br><span class="line">    UNUSED(argv);</span><br><span class="line">#if defined(TEST_LOGGNG)</span><br><span class="line">    xTaskCreate(logging_test, &quot;logging test&quot;, 128 * 2, NULL, 6, NULL);</span><br><span class="line">    while (1) &#123;</span><br><span class="line">        __Logging_I(&quot;test0&quot;, &quot;this is binary test I %s&quot;, &quot;hehdaI&quot;);</span><br><span class="line">        __Logging_D(&quot;test0&quot;, &quot;this is binary test D %s&quot;, &quot;hehdaD&quot;);</span><br><span class="line">        __Logging_E(&quot;test0&quot;, &quot;this is binary test E %s&quot;, &quot;hehdaE&quot;);</span><br><span class="line">        __Logging_W(&quot;test0&quot;, &quot;this is binary test W %s&quot;, &quot;hehdaW&quot;);</span><br><span class="line">        vTaskDelay(MS2TICK(1000));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是测试结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> (166333) test1: this is binary test I</span><br><span class="line">D (166333) test1: this is binary test D</span><br><span class="line">E (166333) test1: this is binary test E</span><br><span class="line">W (166334) test1: this is binary test W</span><br><span class="line">I (166336) test0: this is binary test I hehdaI</span><br><span class="line">D (166336) test0: this is binary test D hehdaD</span><br><span class="line">E (166336) test0: this is binary test E hehdaE</span><br><span class="line">W (166337) test0: this is binary test W hehdaW</span><br><span class="line">I (167335) test1: this is binary test I</span><br><span class="line">D (167335) test1: this is binary test D</span><br><span class="line">E (167335) test1: this is binary test E</span><br><span class="line">W (167336) test1: this is binary test W</span><br><span class="line">I (167338) test0: this is binary test I hehdaI</span><br><span class="line">D (167338) test0: this is binary test D hehdaD</span><br><span class="line">E (167338) test0: this is binary test E hehdaE</span><br><span class="line">W (167339) test0: this is binary test W hehdaW</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，两个线程打印没有出现覆盖，破坏。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/STM32/" rel="tag"># STM32</a>
+          
+            <a href="/tags/FreeRTOS/" rel="tag"># FreeRTOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/" rel="next" title="Hal_Delay在FreeRTOS下无法跳出的">
+                <i class="fa fa-chevron-left"></i> Hal_Delay在FreeRTOS下无法跳出的
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">张汇锋</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源占用模型"><span class="nav-number">2.</span> <span class="nav-text">资源占用模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际的例子。"><span class="nav-number">3.</span> <span class="nav-text">实际的例子。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张汇锋</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

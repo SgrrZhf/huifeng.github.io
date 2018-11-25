@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://ihuifeng.cc/2018/11/25/FreeRTOS%E4%B8%AD%E5%88%A9%E7%94%A8Binary-Sepahore-%E5%81%9A%E8%B5%84%E6%BA%90%E4%BF%9D%E6%8A%A4/</loc>
+    <lastmod>2018-11-25T15:00:03.655Z</lastmod>
+    <data>
+        <display>
+        <title>FreeRTOS中利用Binary_Sepahore_做资源保护</title>
+        <pubTime>2018-11-25T13:41:20.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>FreeRTOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://ihuifeng.cc/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ihuifeng.cc/2018/08/01/%E7%BB%98%E5%88%B6pcb%E6%9C%80%E5%90%8E%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84%E6%A3%80%E6%9F%A5/</loc>
     <lastmod>2018-11-13T14:51:03.265Z</lastmod>
     <data>
@@ -31,9 +53,9 @@
         <title>Hal_Delay在FreeRTOS下无法跳出的</title>
         <pubTime>2018-10-20T06:21:39.000Z</pubTime>
         
-        <tag>arm</tag>
-         
         <tag>STM32</tag>
+         
+        <tag>arm</tag>
          
          
            
@@ -97,9 +119,9 @@
         <title>STM32 UART IDLE中断异常的一种</title>
         <pubTime>2018-08-15T05:49:18.000Z</pubTime>
         
-        <tag>arm</tag>
-         
         <tag>STM32</tag>
+         
+        <tag>arm</tag>
          
         <tag>USART</tag>
          
@@ -121,9 +143,9 @@
         <title>AT指令编程（数据驱动的方式）</title>
         <pubTime>2018-08-30T12:28:19.000Z</pubTime>
         
-        <tag>STM32</tag>
-         
         <tag>Methodology</tag>
+         
+        <tag>STM32</tag>
          
         <tag>AT</tag>
          
