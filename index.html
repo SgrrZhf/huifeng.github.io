@@ -17,9 +17,9 @@
 <html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -32,8 +32,30 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
 
 
 
@@ -42,54 +64,19 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
+    pangu: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
@@ -98,15 +85,14 @@
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
-
-
-  
-
-
-
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="ihuifeng">
@@ -120,17 +106,19 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://ihuifeng.cc/"/>
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
 </script>
 
+  
   <title>ihuifeng</title>
   
 
@@ -142,30 +130,31 @@
 
 
 
+
+
+
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -184,7 +173,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -198,6 +187,7 @@
       
         <p class="site-subtitle">汇锋的点点滴滴</p>
       
+    
     
   </div>
 
@@ -221,32 +211,64 @@
         
           
           <li class="menu-item menu-item-home menu-item-active">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
+
   </li>
 
       
@@ -261,10 +283,6 @@
 
   
 </nav>
-
-
-
-  
 
 
 
@@ -297,16 +315,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng">
+      <meta itemprop="name" content="ihuifeng"/>
     </span>
 
     
@@ -316,22 +334,21 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/" itemprop="url">
-                  FreeRTOS中利用Binary_Sepahore_做资源保护
-                </a>
+                
+                <a href="/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/" class="post-title-link" itemprop="url">FreeRTOS中利用Binary_Sepahore_做资源保护</a>
               
             
           </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -344,20 +361,17 @@
               
 
               <time title="创建时间：2018-11-25 21:41:20 / 修改时间：23:00:03" itemprop="dateCreated datePublished" datetime="2018-11-25T21:41:20+08:00">2018-11-25</time>
-            
-
-            
-              
-
-              
-            
-          </span>
+            </span>
+          
 
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+          
+
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -375,11 +389,17 @@
 
           
             
+            
           
 
           
           
 
+          
+
+          
+
+          <br/>
           
 
           
@@ -402,11 +422,13 @@
         
           <p>FreeRTOS中用来做资源保护的一般是Mutex，对于有些情况，Mutex并不能够很好的完成任务<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/11/25/FreeRTOS中利用Binary-Sepahore-做资源保护/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -415,11 +437,16 @@
     
 
     
+
+    
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -459,16 +486,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng">
+      <meta itemprop="name" content="ihuifeng"/>
     </span>
 
     
@@ -478,22 +505,21 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/" itemprop="url">
-                  Hal_Delay在FreeRTOS下无法跳出的
-                </a>
+                
+                <a href="/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/" class="post-title-link" itemprop="url">Hal_Delay在FreeRTOS下无法跳出的</a>
               
             
           </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -506,20 +532,17 @@
               
 
               <time title="创建时间：2018-10-20 14:21:39 / 修改时间：14:46:49" itemprop="dateCreated datePublished" datetime="2018-10-20T14:21:39+08:00">2018-10-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
+            </span>
+          
 
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+          
+
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -537,11 +560,17 @@
 
           
             
+            
           
 
           
           
 
+          
+
+          
+
+          <br/>
           
 
           
@@ -564,11 +593,13 @@
         
           <p>之前我在使用STM32的时候就遇到调用HAL__Delay时无法跳出的问题,程序就直接跑死在里面了，后来这个问题被规避掉了，现在在新程序里又一次遇到这个问题，我决定将其解决掉！<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/10/20/Hal-Delay在FreeRTOS下无法跳出的/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -577,11 +608,16 @@
     
 
     
+
+    
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -621,16 +657,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/13/linux-kernel编译遇到的坑/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/13/linux-kernel编译遇到的坑/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng">
+      <meta itemprop="name" content="ihuifeng"/>
     </span>
 
     
@@ -640,22 +676,21 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/13/linux-kernel编译遇到的坑/" itemprop="url">
-                  linux-kernel编译遇到的坑
-                </a>
+                
+                <a href="/2018/10/13/linux-kernel编译遇到的坑/" class="post-title-link" itemprop="url">linux-kernel编译遇到的坑</a>
               
             
           </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -668,16 +703,14 @@
               
 
               <time title="创建时间：2018-10-13 20:57:02" itemprop="dateCreated datePublished" datetime="2018-10-13T20:57:02+08:00">2018-10-13</time>
+            </span>
+          
+
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
@@ -685,15 +718,12 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2018-10-14 11:45:06" itemprop="dateModified" datetime="2018-10-14T11:45:06+08:00">2018-10-14</time>
-              
+              </span>
             
-          </span>
+          
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -711,11 +741,17 @@
 
           
             
+            
           
 
           
           
 
+          
+
+          
+
+          <br/>
           
 
           
@@ -738,11 +774,13 @@
         
           <p>这里记录我在学习linux-kernel移植过程中遇到的坑以及解决办法<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/13/linux-kernel编译遇到的坑/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/10/13/linux-kernel编译遇到的坑/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -751,11 +789,16 @@
     
 
     
+
+    
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -795,16 +838,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/10/09/U-BOOT编译移植遇到的坑/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng">
+      <meta itemprop="name" content="ihuifeng"/>
     </span>
 
     
@@ -814,22 +857,21 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/09/U-BOOT编译移植遇到的坑/" itemprop="url">
-                  U-BOOT编译移植遇到的坑
-                </a>
+                
+                <a href="/2018/10/09/U-BOOT编译移植遇到的坑/" class="post-title-link" itemprop="url">U-BOOT编译移植遇到的坑</a>
               
             
           </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -842,20 +884,17 @@
               
 
               <time title="创建时间：2018-10-09 17:28:58 / 修改时间：17:46:31" itemprop="dateCreated datePublished" datetime="2018-10-09T17:28:58+08:00">2018-10-09</time>
-            
-
-            
-              
-
-              
-            
-          </span>
+            </span>
+          
 
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+          
+
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -873,11 +912,17 @@
 
           
             
+            
           
 
           
           
 
+          
+
+          
+
+          <br/>
           
 
           
@@ -903,11 +948,13 @@
 <li>交叉编译工具链的选择</li>
 <li>hard FP 与 software FP
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/09/U-BOOT编译移植遇到的坑/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/10/09/U-BOOT编译移植遇到的坑/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -916,11 +963,16 @@
     
 
     
+
+    
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -960,16 +1012,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/30/AT指令数据驱动编程总结/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/30/AT指令数据驱动编程总结/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng">
+      <meta itemprop="name" content="ihuifeng"/>
     </span>
 
     
@@ -979,22 +1031,21 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/30/AT指令数据驱动编程总结/" itemprop="url">
-                  AT指令编程（数据驱动的方式）
-                </a>
+                
+                <a href="/2018/08/30/AT指令数据驱动编程总结/" class="post-title-link" itemprop="url">AT指令编程（数据驱动的方式）</a>
               
             
           </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1007,16 +1058,14 @@
               
 
               <time title="创建时间：2018-08-30 20:28:19" itemprop="dateCreated datePublished" datetime="2018-08-30T20:28:19+08:00">2018-08-30</time>
+            </span>
+          
+
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
@@ -1024,15 +1073,12 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2018-08-31 10:17:20" itemprop="dateModified" datetime="2018-08-31T10:17:20+08:00">2018-08-31</time>
-              
+              </span>
             
-          </span>
+          
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1050,11 +1096,17 @@
 
           
             
+            
           
 
           
           
 
+          
+
+          
+
+          <br/>
           
 
           
@@ -1077,11 +1129,13 @@
         
           <p>最近做的项目里用了一个NB-IOT的模块，用的是AT指令来控制。在这过程中，我自认为实现了一个方便、快捷的AT指令驱动，采用了数据驱动编程的思想，可以很方便的添加新指令。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/30/AT指令数据驱动编程总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/30/AT指令数据驱动编程总结/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1090,11 +1144,16 @@
     
 
     
+
+    
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1134,16 +1193,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng">
+      <meta itemprop="name" content="ihuifeng"/>
     </span>
 
     
@@ -1153,22 +1212,21 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/" itemprop="url">
-                  为STM32CubeMX生成的Makefile添加下载，调试功能
-                </a>
+                
+                <a href="/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/" class="post-title-link" itemprop="url">为STM32CubeMX生成的Makefile添加下载，调试功能</a>
               
             
           </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1181,20 +1239,17 @@
               
 
               <time title="创建时间：2018-08-22 20:46:52 / 修改时间：21:36:37" itemprop="dateCreated datePublished" datetime="2018-08-22T20:46:52+08:00">2018-08-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
+            </span>
+          
 
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+          
+
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1212,11 +1267,17 @@
 
           
             
+            
           
 
           
           
 
+          
+
+          
+
+          <br/>
           
 
           
@@ -1239,11 +1300,13 @@
         
           <p>STM32CubeMX用起来特别舒服，谁用谁知道，但是STM32CubeMX生成的Makefile只能做到编译这个功能，想要下载还得手动敲一串命令，调试也是，每次重复输入指令完全不符合程序员“懒”的属性，下面我将介绍一下我的处理方式，让make有更多属性，可以一键下载，调试，顺便也把.ycm_extra_conf.py的文件放入工程里。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1252,11 +1315,16 @@
     
 
     
+
+    
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1296,16 +1364,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA接收/">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA接收/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng">
+      <meta itemprop="name" content="ihuifeng"/>
     </span>
 
     
@@ -1315,22 +1383,21 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/15/STM32_UART_IDLE_DMA接收/" itemprop="url">
-                  STM32 UART IDLE中断异常的一种
-                </a>
+                
+                <a href="/2018/08/15/STM32_UART_IDLE_DMA接收/" class="post-title-link" itemprop="url">STM32 UART IDLE中断异常的一种</a>
               
             
           </h1>
         
 
         <div class="post-meta">
-          <span class="post-time">
 
-            
-            
-            
+          
+          
+          
 
-            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1343,16 +1410,14 @@
               
 
               <time title="创建时间：2018-08-15 13:49:18" itemprop="dateCreated datePublished" datetime="2018-08-15T13:49:18+08:00">2018-08-15</time>
+            </span>
+          
+
+          
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
@@ -1360,15 +1425,12 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2018-10-09 17:46:30" itemprop="dateModified" datetime="2018-10-09T17:46:30+08:00">2018-10-09</time>
-              
+              </span>
             
-          </span>
+          
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1386,11 +1448,17 @@
 
           
             
+            
           
 
           
           
 
+          
+
+          
+
+          <br/>
           
 
           
@@ -1413,11 +1481,13 @@
         
           <p>USART是一个很常用的外设，很多情况下，使用USART接收帧数据的时候并不知道需要接收的帧数据有多长，例如Modbus协议帧，或者AT指令的响应帧，这时就需要接收方主动识别帧结束。STM32的USART外设有一个功能就是IDLE中断，在USART接收到数据后出现空闲帧就会触发。通过IDLE中断配合DMA接收理论上可以完美实现USART不定长数据的接收。但是在实际操作中我却遇到了IDLE中断异常触发的问题，具体就是IDLE在接收的过程中就触发了。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/15/STM32_UART_IDLE_DMA接收/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/15/STM32_UART_IDLE_DMA接收/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1426,11 +1496,16 @@
     
 
     
+
+    
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1480,113 +1555,111 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">张汇锋</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
+  
+  <p class="site-author-name" itemprop="name">张汇锋</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">标签</span>
-                  
-                </div>
-              
-            </nav>
           
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
         </div>
-      </section>
+      </div>
 
       
 
@@ -1594,6 +1667,7 @@
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
         
@@ -1614,9 +1688,7 @@
 </div>
 
 
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -1624,7 +1696,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
 
 
 
@@ -1650,15 +1722,16 @@
     
 
     
-	
+
     
 
     
+
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1679,7 +1752,8 @@
 
 
 
-
+  
+  
 
 
 
@@ -1690,44 +1764,40 @@
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+  <script src="/js/utils.js?v=7.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+  <script src="/js/motion.js?v=7.2.0"></script>
 
 
 
   
   
 
-  
 
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
 
 
 
   
 
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
 
 
   
@@ -1741,30 +1811,45 @@
 
 
 
-  
 
 
 
 
 
-  
 
-  
 
-  
 
-  
 
-  
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+
+
+
+
+
 
   
 

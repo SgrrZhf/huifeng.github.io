@@ -53,9 +53,9 @@
         <title>Hal_Delay在FreeRTOS下无法跳出的</title>
         <pubTime>2018-10-20T06:21:39.000Z</pubTime>
         
-        <tag>STM32</tag>
-         
         <tag>arm</tag>
+         
+        <tag>STM32</tag>
          
          
            
@@ -119,9 +119,9 @@
         <title>STM32 UART IDLE中断异常的一种</title>
         <pubTime>2018-08-15T05:49:18.000Z</pubTime>
         
-        <tag>STM32</tag>
-         
         <tag>arm</tag>
+         
+        <tag>STM32</tag>
          
         <tag>USART</tag>
          
