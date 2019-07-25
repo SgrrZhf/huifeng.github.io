@@ -1,10 +1,10 @@
 # hexo robots.txt
 User-agent: *
-Allow: /
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
 
+Disallow: /
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
