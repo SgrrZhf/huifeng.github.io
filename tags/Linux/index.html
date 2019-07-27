@@ -94,18 +94,13 @@
   };
 </script>
 
-  <meta name="description" content="在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件">
-<meta name="keywords" content="STM32,Makefile">
-<meta property="og:type" content="article">
-<meta property="og:title" content="为STM32CubeMX生成的Makefile添加静态链接库">
-<meta property="og:url" content="https://ihuifeng.cc/2018/07/30/对STM32Cube下生成的Makefile做修改/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="ihuifeng">
+<meta property="og:url" content="https://ihuifeng.cc/tags/Linux/index.html">
 <meta property="og:site_name" content="ihuifeng">
-<meta property="og:description" content="在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T01:28:58.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为STM32CubeMX生成的Makefile添加静态链接库">
-<meta name="twitter:description" content="在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件">
+<meta name="twitter:title" content="ihuifeng">
 
 
 
@@ -113,7 +108,7 @@
 
   
   
-  <link rel="canonical" href="https://ihuifeng.cc/2018/07/30/对STM32Cube下生成的Makefile做修改/"/>
+  <link rel="canonical" href="https://ihuifeng.cc/tags/Linux/"/>
 
 
 
@@ -124,7 +119,7 @@
 </script>
 
   
-  <title>为STM32CubeMX生成的Makefile添加静态链接库 | ihuifeng</title>
+  <title>标签: Linux | ihuifeng</title>
   
 
 
@@ -172,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,7 +241,7 @@
         
         
           
-          <li class="menu-item menu-item-tags">
+          <li class="menu-item menu-item-tags menu-item-active">
 
     
     
@@ -283,6 +278,25 @@
   
     
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
   
 
   
@@ -303,218 +317,59 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Linux<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
-
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/07/30/对STM32Cube下生成的Makefile做修改/"/>
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张汇锋"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ihuifeng"/>
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+          <a class="post-title-link" href="/2019/07/27/折腾终端主题颜色/" itemprop="url">
+            
+              <span itemprop="name">折腾终端主题颜色</span>
+            
+          </a>
         
-          <h1 class="post-title" itemprop="name headline">为STM32CubeMX生成的Makefile添加静态链接库
+      </h2>
 
-              
-            
-          </h1>
-        
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-07-27T21:35:20+08:00"
+              content="2019-07-27">
+          07-27
+        </time>
+      </div>
 
-        <div class="post-meta">
+    </header>
+  </article>
 
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-30 15:33:52" itemprop="dateCreated datePublished" datetime="2018-07-30T15:33:52+08:00">2018-07-30</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-26 09:28:58" itemprop="dateModified" datetime="2019-07-26T09:28:58+08:00">2019-07-26</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MCU/" itemprop="url" rel="index"><span itemprop="name">MCU</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件<br><a id="more"></a></p>
-<h2 id="添加静态链接库"><a href="#添加静态链接库" class="headerlink" title="添加静态链接库"></a>添加静态链接库</h2><ol>
-<li>添加静态链接库的路径：<br>在<code>LIBDIR</code>变量中添加静态链接库的目录。例如我的<code>libarm_cortexM7lfsp_math.a</code>存放的相对路径是<code>Drivers/CMSIS</code>，则给<code>LIBDIR</code>变量添加上<code>-LDrivers/CMSIS</code></li>
-<li>添加静态链接库名称<br>在<code>LIBS</code>变量中添加指定的静态链接库的名称。以1中的文件为例，给<code>LIBS</code>变量添加上<code>-larm_cortexM7lfsp_math</code>。<br>整体效果可参考: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LIBS = -lc -lm -lnosys -larm_cortexM7lfsp_math</span><br><span class="line">LIBDIR = -LDrivers/CMSIS</span><br><span class="line">LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 
       
     </div>
 
-    
-
-    
-      
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/STM32/" rel="tag"># STM32</a>
-          
-            <a href="/tags/Makefile/" rel="tag"># Makefile</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/30/ssh及其衍生工具的使用/" rel="prev" title="ssh及其衍生工具的使用">
-                ssh及其衍生工具的使用 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
   </div>
   
   
   
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
 
   
 
 
+
+          </div>
+          
 
         </div>
         
@@ -534,17 +389,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -654,23 +500,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加静态链接库"><span class="nav-number">1.</span> <span class="nav-text">添加静态链接库</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -800,10 +629,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.2.0"></script>
-<script src="/js/post-details.js?v=7.2.0"></script>
-
-
 
   <script src="/js/next-boot.js?v=7.2.0"></script>
 
@@ -824,8 +649,6 @@
 
 
 
-
-  
 
 
 

@@ -94,18 +94,23 @@
   };
 </script>
 
-  <meta name="description" content="在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件">
-<meta name="keywords" content="STM32,Makefile">
+  <meta name="description" content="本文记录本人在 Solarized-Light 主题的基础上进一步定制化终端的主题, 进一步符合本人对于终端颜色的需求.">
+<meta name="keywords" content="Linux,term,Manjaro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为STM32CubeMX生成的Makefile添加静态链接库">
-<meta property="og:url" content="https://ihuifeng.cc/2018/07/30/对STM32Cube下生成的Makefile做修改/index.html">
+<meta property="og:title" content="折腾终端主题颜色">
+<meta property="og:url" content="https://ihuifeng.cc/2019/07/27/折腾终端主题颜色/index.html">
 <meta property="og:site_name" content="ihuifeng">
-<meta property="og:description" content="在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件">
+<meta property="og:description" content="本文记录本人在 Solarized-Light 主题的基础上进一步定制化终端的主题, 进一步符合本人对于终端颜色的需求.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T01:28:58.514Z">
+<meta property="og:image" content="https://ihuifeng.cc/images/costom-term-colors/2.png">
+<meta property="og:image" content="https://ihuifeng.cc/images/costom-term-colors/1.png">
+<meta property="og:image" content="https://ihuifeng.cc/images/costom-term-colors/3.png">
+<meta property="og:image" content="https://ihuifeng.cc/images/costom-term-colors/4.png">
+<meta property="og:updated_time" content="2019-07-27T14:54:47.188Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为STM32CubeMX生成的Makefile添加静态链接库">
-<meta name="twitter:description" content="在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件">
+<meta name="twitter:title" content="折腾终端主题颜色">
+<meta name="twitter:description" content="本文记录本人在 Solarized-Light 主题的基础上进一步定制化终端的主题, 进一步符合本人对于终端颜色的需求.">
+<meta name="twitter:image" content="https://ihuifeng.cc/images/costom-term-colors/2.png">
 
 
 
@@ -113,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="https://ihuifeng.cc/2018/07/30/对STM32Cube下生成的Makefile做修改/"/>
+  <link rel="canonical" href="https://ihuifeng.cc/2019/07/27/折腾终端主题颜色/"/>
 
 
 
@@ -124,7 +129,7 @@
 </script>
 
   
-  <title>为STM32CubeMX生成的Makefile添加静态链接库 | ihuifeng</title>
+  <title>折腾终端主题颜色 | ihuifeng</title>
   
 
 
@@ -319,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/07/30/对STM32Cube下生成的Makefile做修改/"/>
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2019/07/27/折腾终端主题颜色/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张汇锋"/>
@@ -336,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">为STM32CubeMX生成的Makefile添加静态链接库
+          <h1 class="post-title" itemprop="name headline">折腾终端主题颜色
 
               
             
@@ -362,23 +367,13 @@
                 
               
 
-              <time title="创建时间：2018-07-30 15:33:52" itemprop="dateCreated datePublished" datetime="2018-07-30T15:33:52+08:00">2018-07-30</time>
+              <time title="创建时间：2019-07-27 21:35:20 / 修改时间：22:54:47" itemprop="dateCreated datePublished" datetime="2019-07-27T21:35:20+08:00">2019-07-27</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-26 09:28:58" itemprop="dateModified" datetime="2019-07-26T09:28:58+08:00">2019-07-26</time>
-              </span>
             
           
 
@@ -391,7 +386,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MCU/" itemprop="url" rel="index"><span itemprop="name">MCU</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/term/" itemprop="url" rel="index"><span itemprop="name">term</span></a></span>
 
                 
                 
@@ -431,11 +426,17 @@
       
 
       
-        <p>在STM32的编程中，大多都是直接编译源文件，但当需要用到CMSIS中的DSP_Lib时，由于源文件多，并不适合一个一个添加，所以我们可以直接使用DSP_Lib的静态链接库，一劳永逸。下面则以STM32F7系列的为例，展示如何修改Makefile使得编译器可以使用DSP_Lib的静态链接库来生成目标文件<br><a id="more"></a></p>
-<h2 id="添加静态链接库"><a href="#添加静态链接库" class="headerlink" title="添加静态链接库"></a>添加静态链接库</h2><ol>
-<li>添加静态链接库的路径：<br>在<code>LIBDIR</code>变量中添加静态链接库的目录。例如我的<code>libarm_cortexM7lfsp_math.a</code>存放的相对路径是<code>Drivers/CMSIS</code>，则给<code>LIBDIR</code>变量添加上<code>-LDrivers/CMSIS</code></li>
-<li>添加静态链接库名称<br>在<code>LIBS</code>变量中添加指定的静态链接库的名称。以1中的文件为例，给<code>LIBS</code>变量添加上<code>-larm_cortexM7lfsp_math</code>。<br>整体效果可参考: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LIBS = -lc -lm -lnosys -larm_cortexM7lfsp_math</span><br><span class="line">LIBDIR = -LDrivers/CMSIS</span><br><span class="line">LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections</span><br></pre></td></tr></table></figure>
-</li>
+        <p><link rel="stylesheet" type="text/css" href="/auto-number-title.css"><br>本文记录本人在 Solarized-Light 主题的基础上进一步定制化终端的主题, 进一步符合本人对于终端颜色的需求.<br><a id="more"></a></p>
+<h1 id="定制化终端主题颜色"><a href="#定制化终端主题颜色" class="headerlink" title="定制化终端主题颜色"></a>定制化终端主题颜色</h1><p>折腾的软件环境如下:</p>
+<ol>
+<li>Manjaro 系统, KDE 桌面, 自带终端</li>
+<li>终端主题 Solarized-Light </li>
+</ol>
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><h3 id="实现前"><a href="#实现前" class="headerlink" title="实现前"></a>实现前</h3><p><img src="/images/costom-term-colors/2.png" alt="Github Logo"><br>从整体上看, (正文)需要突出的部分没有突出( 1/2/3 处颜色均很浅), 补全的提示到显得异常突出( 4 处颜色异常突出).</p>
+<h3 id="实现后"><a href="#实现后" class="headerlink" title="实现后"></a>实现后</h3><p><img src="/images/costom-term-colors/1.png" alt="Github Logo"><br>整体上的视觉效果则清晰了很多, 正文部分颜色加深( 1/2/3 处均加深特别是正文处, 几乎就是全黑), 补全的提示颜色降浅. </p>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><ol>
+<li>以旧主题为模板新建一个主题<br> 修改终端配置里颜色表的特定颜色的值. 对于 Manjaro KDE 版本的终端 Konsole 来说, 就是<code>右键</code>-&gt;<code>Edit Current Profile</code>, 打开对话框, 在 Appearance 中修改当前主题的颜色, 推荐以自带的主题为模板, 新建一个主题, 然后在其中修改.<br> <img src="/images/costom-term-colors/3.png" alt="Github Logo"></li>
+<li>修改特定的颜色的值<br> 图中标注的序号与实现前后的示意图中的序号是对应起来的, 在这里给出作为参考, 实际使用时可根据个人习惯自行修改. 这里所修改的也不只有这四处, 但是和上述终端显示的最终效果没有直接的关系, 这里就没有指出来.<br> <img src="/images/costom-term-colors/4.png" alt="Github Logo"></li>
 </ol>
 
       
@@ -467,9 +468,11 @@
         
         <div class="post-tags">
           
-            <a href="/tags/STM32/" rel="tag"># STM32</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/Makefile/" rel="tag"># Makefile</a>
+            <a href="/tags/term/" rel="tag"># term</a>
+          
+            <a href="/tags/Manjaro/" rel="tag"># Manjaro</a>
           
         </div>
       
@@ -482,15 +485,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/25/cmake学习笔记/" rel="next" title="cmake学习笔记">
+                <i class="fa fa-chevron-left"></i> cmake学习笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/30/ssh及其衍生工具的使用/" rel="prev" title="ssh及其衍生工具的使用">
-                ssh及其衍生工具的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -665,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加静态链接库"><span class="nav-number">1.</span> <span class="nav-text">添加静态链接库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定制化终端主题颜色"><span class="nav-number">1.</span> <span class="nav-text">定制化终端主题颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现效果"><span class="nav-number">1.1.</span> <span class="nav-text">实现效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现前"><span class="nav-number">1.1.1.</span> <span class="nav-text">实现前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现后"><span class="nav-number">1.1.2.</span> <span class="nav-text">实现后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方法"><span class="nav-number">1.2.</span> <span class="nav-text">实现方法</span></a></li></ol></li></ol></div>
             
 
           </div>

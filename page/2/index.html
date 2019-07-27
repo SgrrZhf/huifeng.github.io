@@ -315,6 +315,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张汇锋"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ihuifeng"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/" class="post-title-link" itemprop="url">为STM32CubeMX生成的Makefile添加下载，调试功能</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-22 20:46:52" itemprop="dateCreated datePublished" datetime="2018-08-22T20:46:52+08:00">2018-08-22</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-26 09:28:58" itemprop="dateModified" datetime="2019-07-26T09:28:58+08:00">2019-07-26</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MCU/" itemprop="url" rel="index"><span itemprop="name">MCU</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>STM32CubeMX用起来特别舒服，谁用谁知道，但是STM32CubeMX生成的Makefile只能做到编译这个功能，想要下载还得手动敲一串命令，调试也是，每次重复输入指令完全不符合程序员“懒”的属性，下面我将介绍一下我的处理方式，让make有更多属性，可以一键下载，调试，顺便也把.ycm_extra_conf.py的文件放入工程里。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/08/22/为STM32CubeMX生成的Makefile添加更多功能/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA接收/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -375,7 +556,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-09 17:46:30" itemprop="dateModified" datetime="2018-10-09T17:46:30+08:00">2018-10-09</time>
+                <time title="修改时间：2019-07-26 09:28:58" itemprop="dateModified" datetime="2019-07-26T09:28:58+08:00">2019-07-26</time>
               </span>
             
           
@@ -556,7 +737,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-13 22:51:03" itemprop="dateModified" datetime="2018-11-13T22:51:03+08:00">2018-11-13</time>
+                <time title="修改时间：2019-07-26 09:28:58" itemprop="dateModified" datetime="2019-07-26T09:28:58+08:00">2019-07-26</time>
               </span>
             
           
@@ -722,13 +903,23 @@
                 
               
 
-              <time title="创建时间：2018-07-30 15:50:00 / 修改时间：17:20:27" itemprop="dateCreated datePublished" datetime="2018-07-30T15:50:00+08:00">2018-07-30</time>
+              <time title="创建时间：2018-07-30 15:50:00" itemprop="dateCreated datePublished" datetime="2018-07-30T15:50:00+08:00">2018-07-30</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-26 09:28:58" itemprop="dateModified" datetime="2019-07-26T09:28:58+08:00">2019-07-26</time>
+              </span>
             
           
 
@@ -910,7 +1101,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-22 21:09:05" itemprop="dateModified" datetime="2018-08-22T21:09:05+08:00">2018-08-22</time>
+                <time title="修改时间：2019-07-26 09:28:58" itemprop="dateModified" datetime="2019-07-26T09:28:58+08:00">2019-07-26</time>
               </span>
             
           
@@ -1063,7 +1254,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1088,7 +1279,9 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
         
       </div>
@@ -1125,7 +1318,13 @@
         
           
         
-        <span class="site-state-item-count">12</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
