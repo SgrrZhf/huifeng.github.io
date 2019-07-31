@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://ihuifeng.cc/2019/07/25/cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2019-07-31T16:19:26.897Z</lastmod>
+    <data>
+        <display>
+        <title>cmake学习笔记</title>
+        <pubTime>2019-07-25T15:33:09.000Z</pubTime>
+        
+        <tag>cmake</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://ihuifeng.cc/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ihuifeng.cc/2019/07/27/%E6%8A%98%E8%85%BE%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/</loc>
     <lastmod>2019-07-27T14:54:47.188Z</lastmod>
     <data>
@@ -21,26 +41,6 @@
            
              
               <breadCrumb title="term" url="https://ihuifeng.cc/categories/term/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ihuifeng.cc/2019/07/25/cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-07-26T08:43:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>cmake学习笔记</title>
-        <pubTime>2019-07-25T15:33:09.000Z</pubTime>
-        
-        <tag>cmake</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://ihuifeng.cc/categories/coding/"/>
           
         </display>
     </data>
@@ -73,28 +73,6 @@
     
     
   <url>
-    <loc>https://ihuifeng.cc/2018/10/20/Hal-Delay%E5%9C%A8FreeRTOS%E4%B8%8B%E6%97%A0%E6%B3%95%E8%B7%B3%E5%87%BA%E7%9A%84/</loc>
-    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
-    <data>
-        <display>
-        <title>Hal_Delay在FreeRTOS下无法跳出的</title>
-        <pubTime>2018-10-20T06:21:39.000Z</pubTime>
-        
-        <tag>arm</tag>
-         
-        <tag>STM32</tag>
-         
-         
-           
-             
-              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://ihuifeng.cc/2018/11/25/FreeRTOS%E4%B8%AD%E5%88%A9%E7%94%A8Binary-Sepahore-%E5%81%9A%E8%B5%84%E6%BA%90%E4%BF%9D%E6%8A%A4/</loc>
     <lastmod>2019-07-26T01:28:58.514Z</lastmod>
     <data>
@@ -110,6 +88,52 @@
            
              
               <breadCrumb title="coding" url="https://ihuifeng.cc/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/10/20/Hal-Delay%E5%9C%A8FreeRTOS%E4%B8%8B%E6%97%A0%E6%B3%95%E8%B7%B3%E5%87%BA%E7%9A%84/</loc>
+    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
+    <data>
+        <display>
+        <title>Hal_Delay在FreeRTOS下无法跳出的</title>
+        <pubTime>2018-10-20T06:21:39.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>arm</tag>
+         
+         
+           
+             
+              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA%E6%8E%A5%E6%94%B6/</loc>
+    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
+    <data>
+        <display>
+        <title>STM32 UART IDLE中断异常的一种</title>
+        <pubTime>2018-08-15T05:49:18.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>arm</tag>
+         
+        <tag>USART</tag>
+         
+         
+           
+             
+              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
           
         </display>
     </data>
@@ -161,6 +185,26 @@
 
     
   <url>
+    <loc>https://ihuifeng.cc/2018/07/30/ssh%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
+    <data>
+        <display>
+        <title>ssh及其衍生工具的使用</title>
+        <pubTime>2018-07-30T07:50:00.000Z</pubTime>
+        
+        <tag>Tools</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tools" url="https://ihuifeng.cc/categories/Tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ihuifeng.cc/2018/08/22/%E4%B8%BASTM32CubeMX%E7%94%9F%E6%88%90%E7%9A%84Makefile%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD/</loc>
     <lastmod>2019-07-26T01:28:58.514Z</lastmod>
     <data>
@@ -171,30 +215,6 @@
         <tag>STM32</tag>
          
         <tag>Makefile</tag>
-         
-         
-           
-             
-              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA%E6%8E%A5%E6%94%B6/</loc>
-    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
-    <data>
-        <display>
-        <title>STM32 UART IDLE中断异常的一种</title>
-        <pubTime>2018-08-15T05:49:18.000Z</pubTime>
-        
-        <tag>arm</tag>
-         
-        <tag>STM32</tag>
-         
-        <tag>USART</tag>
          
          
            
@@ -222,26 +242,6 @@
            
              
               <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ihuifeng.cc/2018/07/30/ssh%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
-    <data>
-        <display>
-        <title>ssh及其衍生工具的使用</title>
-        <pubTime>2018-07-30T07:50:00.000Z</pubTime>
-        
-        <tag>Tools</tag>
-         
-         
-           
-             
-              <breadCrumb title="Tools" url="https://ihuifeng.cc/categories/Tools/"/>
           
         </display>
     </data>

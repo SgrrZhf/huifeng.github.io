@@ -70,7 +70,7 @@
     root: '/',
     scheme: 'Muse',
     version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     fancybox: false,
@@ -94,18 +94,18 @@
   };
 </script>
 
-  <meta name="description" content="本文将记录我的 cmake 学习历程. 更多参考 cmake 官方文档 v3.10，版本会随时间变动。">
+  <meta name="description" content="本文将记录我的 cmake 学习历程. 使用的版本是 v3.10. 更多信息请参考 cmake 官方文档 v3.10，版本会随时间变动, 如有冲突的地方, 以官方文档为准。">
 <meta name="keywords" content="cmake">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cmake学习笔记">
 <meta property="og:url" content="https://ihuifeng.cc/2019/07/25/cmake学习笔记/index.html">
 <meta property="og:site_name" content="ihuifeng">
-<meta property="og:description" content="本文将记录我的 cmake 学习历程. 更多参考 cmake 官方文档 v3.10，版本会随时间变动。">
+<meta property="og:description" content="本文将记录我的 cmake 学习历程. 使用的版本是 v3.10. 更多信息请参考 cmake 官方文档 v3.10，版本会随时间变动, 如有冲突的地方, 以官方文档为准。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T08:43:26.000Z">
+<meta property="og:updated_time" content="2019-07-31T16:19:26.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmake学习笔记">
-<meta name="twitter:description" content="本文将记录我的 cmake 学习历程. 更多参考 cmake 官方文档 v3.10，版本会随时间变动。">
+<meta name="twitter:description" content="本文将记录我的 cmake 学习历程. 使用的版本是 v3.10. 更多信息请参考 cmake 官方文档 v3.10，版本会随时间变动, 如有冲突的地方, 以官方文档为准。">
 
 
 
@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 16:43:26" itemprop="dateModified" datetime="2019-07-26T16:43:26+08:00">2019-07-26</time>
+                <time title="修改时间：2019-08-01 00:19:26" itemprop="dateModified" datetime="2019-08-01T00:19:26+08:00">2019-08-01</time>
               </span>
             
           
@@ -431,23 +431,27 @@
       
 
       
-        <p><link rel="stylesheet" type="text/css" href="/auto-number-title.css"><br>本文将记录我的 cmake 学习历程. 更多参考 <a href="https://cmake.org/cmake/help/v3.10/index.html" target="_blank" rel="noopener">cmake 官方文档 v3.10</a>，版本会随时间变动。<br><a id="more"></a></p>
+        <link rel="stylesheet" type="text/css" href="/auto-number-title.css">
+
+<p>本文将记录我的 cmake 学习历程. 使用的版本是 v3.10. 更多信息请参考 <a href="https://cmake.org/cmake/help/v3.10/index.html" target="_blank" rel="noopener">cmake 官方文档 v3.10</a>，版本会随时间变动, 如有冲突的地方, 以官方文档为准。<br><a id="more"></a></p>
 <h1 id="CMAKE-学习笔记"><a href="#CMAKE-学习笔记" class="headerlink" title="CMAKE 学习笔记"></a>CMAKE 学习笔记</h1><h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="cmake-构建可执行文件的最基本要素"><a href="#cmake-构建可执行文件的最基本要素" class="headerlink" title="cmake 构建可执行文件的最基本要素"></a>cmake 构建可执行文件的最基本要素</h3><ol>
 <li><code>cmake_minimum_required(VERSION major.minor[.patch[.tweak]]</code><br> 指示最低版本要求</li>
 <li><code>add_executable(&lt;name&gt; [WIN32] [MACOSX_BUNDLE] [EXCLUDE_FROM_ALL]source1 [source2 ...])</code><br> 设定一个可执行文件目标，并指定依赖的文件</li>
 </ol>
-<h3 id="单个源文件的-cmake-构建"><a href="#单个源文件的-cmake-构建" class="headerlink" title="单个源文件的 cmake 构建"></a>单个源文件的 cmake 构建</h3><p>有了以上的两条命令，就可以构建一个最简单的 cmake 文件，并添加一个源文件进行编译，如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10)</span><br><span class="line">add_executable(run combination.c)</span><br></pre></td></tr></table></figure></p>
+<h3 id="单个源文件的-cmake-构建"><a href="#单个源文件的-cmake-构建" class="headerlink" title="单个源文件的 cmake 构建"></a>单个源文件的 cmake 构建</h3><p>有了以上的两条命令，就可以构建一个最简单的 cmake 文件，并添加一个源文件进行编译，如下。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"><span class="keyword">add_executable</span>(run combination.c)</span><br></pre></td></tr></table></figure>
 <h3 id="指定项目名"><a href="#指定项目名" class="headerlink" title="指定项目名"></a>指定项目名</h3><ul>
-<li><code>project(&lt;PROJECT-NAME&gt; [VERSION &lt;major&gt;[.&lt;minor&gt;[.&lt;patch&gt;[.&lt;tweak&gt;]]]] [LANGUAGES &lt;language-name&gt;...])</code><br>  为项目指定一个名称，并且可以指定版本号和语言（默认是 C 和 CXX）,同时内部变量<code>PROJECT_NAME</code>、<code>PROJECT_SOURCE_DIR</code>、<code>&lt;PROJECT-NAME&gt;_SOURCE_DIR</code>、<code>PROJECT_BINARY_DIR</code>、<code>&lt;PROJECT-NAME&gt;_BINARY_DIR</code><br>  更多内容参考: <a href="https://cmake.org/cmake/help/v3.5/command/project.html" target="_blank" rel="noopener">cmake project</a></li>
+<li><code>project(&lt;PROJECT-NAME&gt; [VERSION &lt;major&gt;[.&lt;minor&gt;[.&lt;patch&gt;[.&lt;tweak&gt;]]]] [LANGUAGES &lt;language-name&gt;...])</code><br>  为项目指定一个名称，并且可以指定版本号和语言（默认是 C 和 CXX）,同时内部变量<code>PROJECT_NAME</code>、<code>PROJECT_SOURCE_DIR</code>、<code>&lt;PROJECT-NAME&gt;_SOURCE_DIR</code>、<code>PROJECT_BINARY_DIR</code>、<code>&lt;PROJECT-NAME&gt;_BINARY_DIR</code><br>  更多内容参考: <a href="https://cmake.org/cmake/help/v3.5/command/project.html" target="_blank" rel="noopener"><font color="blue">cmake project</font></a></li>
 </ul>
 <h3 id="修改默认编译器为指定的编译器"><a href="#修改默认编译器为指定的编译器" class="headerlink" title="修改默认编译器为指定的编译器"></a>修改默认编译器为指定的编译器</h3><ol>
-<li>set(<variable> <value>… [PARENT_SCOPE])</value></variable></li>
-<li><code>CMAKE_&lt;LANG&gt;_COMPILER</code><br>\<lang> 的编译器，在 Ubuntu 默认为<code>CC</code>，通常也就是<code>gcc</code>。相比之下，本人更喜欢用<code>clang</code>。使用<code>set()</code>命令修改</lang></li>
+<li>set(&lt;variable&gt; &lt;value&gt;… [PARENT_SCOPE])</li>
+<li><code>CMAKE_&lt;LANG&gt;_COMPILER</code><br>&lt;LANG&gt; 的编译器，在 Ubuntu 默认为<code>CC</code>，通常也就是<code>gcc</code>。相比之下，本人更喜欢用<code>clang</code>。使用<code>set()</code>命令修改</li>
 </ol>
-<h3 id="指定了项目名和编译器的-cmake"><a href="#指定了项目名和编译器的-cmake" class="headerlink" title="指定了项目名和编译器的 cmake"></a>指定了项目名和编译器的 cmake</h3><p>有了以上的命令和变量，就可以指定喜欢的编译器，设置好一个项目名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10)</span><br><span class="line">project(per_and_com)</span><br><span class="line">set(CMAKE_C_COMPILER clang)</span><br><span class="line">add_executable($&#123;PROJECT_NAME&#125; combination.c)</span><br></pre></td></tr></table></figure></p>
+<h3 id="指定了项目名和编译器的-cmake"><a href="#指定了项目名和编译器的-cmake" class="headerlink" title="指定了项目名和编译器的 cmake"></a>指定了项目名和编译器的 cmake</h3><p>有了以上的命令和变量，就可以指定喜欢的编译器，设置好一个项目名</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"><span class="keyword">project</span>(per_and_com)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER clang)</span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> combination.c)</span><br></pre></td></tr></table></figure>
 <h3 id="简单版本的多文件多目录的-cmake-构建"><a href="#简单版本的多文件多目录的-cmake-构建" class="headerlink" title="简单版本的多文件多目录的 cmake 构建"></a>简单版本的多文件多目录的 cmake 构建</h3><p>除了在<code>add_exectuable()</code>中逐个加入每一个源文件外，可以通过 cmake 内置的命令添加源文件</p>
 <h4 id="单目录，多文件"><a href="#单目录，多文件" class="headerlink" title="单目录，多文件"></a>单目录，多文件</h4><ul>
-<li><code>aux_source_directory(&lt;dir&gt; &lt;variable&gt;)</code><br>  在\<dir> 中找到所有的源文件并放入 \<variable> 中，对于单目录来说，<code>&lt;dir&gt; = .</code></variable></dir></li>
+<li><code>aux_source_directory(&lt;dir&gt; &lt;variable&gt;)</code><br>  在&lt;dir&gt; 中找到所有的源文件并放入 &lt;variable&gt; 中，对于单目录来说，<code>&lt;dir&gt; = .</code></li>
 </ul>
 <h4 id="多目录，多文件"><a href="#多目录，多文件" class="headerlink" title="多目录，多文件"></a>多目录，多文件</h4><p>对于多目录来说，同样可以使用上条命令添加，此时<code>&lt;dir&gt;</code>设置为实际源代码所在目录，如果目录里存在头文件的情况下，需要将该目录添加到头文件查找路径中。  </p>
 <ul>
@@ -455,10 +459,20 @@
 </ul>
 <h4 id="多目录的-cmake-构建（直接编译方式）"><a href="#多目录的-cmake-构建（直接编译方式）" class="headerlink" title="多目录的 cmake 构建（直接编译方式）"></a>多目录的 cmake 构建（直接编译方式）</h4><ol>
 <li><p>目录结构</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── build</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── combination</span><br><span class="line">│   ├── combination.c</span><br><span class="line">│   └── combination.h</span><br><span class="line">└── main.c</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── build</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── combination</span><br><span class="line">│   ├── combination.c</span><br><span class="line">│   └── combination.h</span><br><span class="line">└── main.c</span><br></pre></td></tr></table></figure>
 <p> build 用来存放<code>cmake</code>和<code>make</code>执行的结果。<code>combination</code>里存放了实现组合数的遍历的源文件和头文件。顶层目录下是<code>main.c</code>和<code>CMakeLists.txt</code></p>
 </li>
-<li>CMakeLists.txt 的写法 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10)</span><br><span class="line"></span><br><span class="line">project(per_and_com)</span><br><span class="line">set(CMAKE_C_COMPILER clang)</span><br><span class="line"></span><br><span class="line">aux_source_directory(. DIR_SRCS) # 添加顶层目录下的源文件到变量 DIR_SRCS</span><br><span class="line">aux_source_directory(./combination DIR_SRCS) # 添加 combination 中的源文件到变量 DIR_SRCS</span><br><span class="line">include_directories(./combination) # 添加头文件查找目录到 Property INCLUDE_DRECTORIES 中</span><br><span class="line"></span><br><span class="line">add_executable($&#123;PROJECT_NAME&#125; $&#123;DIR_SRCS&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>CMakeLists.txt 的写法</p>
+ <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"><span class="keyword">project</span>(per_and_com)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER clang)</span><br><span class="line"><span class="keyword">aux_source_directory</span>(. DIR_SRCS) <span class="comment"># 添加顶层目录下的源文件到变量 DIR_SRCS</span></span><br><span class="line"><span class="keyword">aux_source_directory</span>(./combination DIR_SRCS) <span class="comment"># 添加 combination 中的源文件到变量 DIR_SRCS</span></span><br><span class="line"><span class="keyword">include_directories</span>(./combination) <span class="comment"># 添加头文件查找目录到 Property INCLUDE_DRECTORIES 中</span></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> <span class="variable">$&#123;DIR_SRCS&#125;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="设置编译模式-Debug-Release-等"><a href="#设置编译模式-Debug-Release-等" class="headerlink" title="设置编译模式(Debug, Release 等)"></a>设置编译模式(Debug, Release 等)</h3><ol>
+<li><code>CMAKE_BUILD_TYPE</code>,指定一种编译模式<br> 默认值为空, 可选值有<code>Debug</code>,<code>Release</code>,<code>RelWithDebInfo</code>和<code>MinSizeRel</code>.与这四个参数对应的还有四个变量, 它们是<code>CMAKE_&lt;LANG&gt;_FLAGS_[DEBUG|RELEASE|RELWITHDEBINFO|MINSIZEREL]</code>. 例如, 如果设置了<code>CMAKE_BUILD_TYPE</code>为<code>Debug</code>, 那么<code>CMAKE_&lt;LANG&gt;_FLAGS_DEBUG</code>就会被添加到<code>CMAKE_&lt;LANG&gt;_FLAGS</code>中.</li>
+<li><code>CMAKE_&lt;LANG&gt;_FLAGS</code>, 传递给编译器的所有参数<br> 参数包括但不限定于<code>-Wall</code>, <code>-Og</code>等等这些参数, gcc 用户可以参考<a href="https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html" target="_blank" rel="noopener">GCC Option Summary</a></li>
+<li><p>将程序编译选项设置成 Debug 模式</p>
+ <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_BUILD_TYPE <span class="string">"Debug"</span>) <span class="comment"># 设置成 Debug 模式</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_FLAGS_DEBUG <span class="string">"$&#123;CMAKE_C_FLAGS_DEBUG&#125; -Og -g"</span>) <span class="comment"># 为 Debug 模式对应的变量添加 -g -Og 等参数</span></span><br></pre></td></tr></table></figure>
+<p> 在 v3.10 环境下, <code>CMAKE_C_FLAGS_DEBUG</code>默认值就是 “-g”, 所以不加也可以, 但是为了清楚, 还是显示的添加了 “-g”.<br> 同理可以将编译选项设置成 Release 等其他的模式, 并自定义编译选项从而达到想要的编译效果.</p>
+</li>
 </ol>
 
       
@@ -690,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMAKE-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">CMAKE 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">1.1.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake-构建可执行文件的最基本要素"><span class="nav-number">1.1.1.</span> <span class="nav-text">cmake 构建可执行文件的最基本要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单个源文件的-cmake-构建"><span class="nav-number">1.1.2.</span> <span class="nav-text">单个源文件的 cmake 构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定项目名"><span class="nav-number">1.1.3.</span> <span class="nav-text">指定项目名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改默认编译器为指定的编译器"><span class="nav-number">1.1.4.</span> <span class="nav-text">修改默认编译器为指定的编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定了项目名和编译器的-cmake"><span class="nav-number">1.1.5.</span> <span class="nav-text">指定了项目名和编译器的 cmake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单版本的多文件多目录的-cmake-构建"><span class="nav-number">1.1.6.</span> <span class="nav-text">简单版本的多文件多目录的 cmake 构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单目录，多文件"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">单目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录，多文件"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">多目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录的-cmake-构建（直接编译方式）"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">多目录的 cmake 构建（直接编译方式）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMAKE-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">CMAKE 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">1.1.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake-构建可执行文件的最基本要素"><span class="nav-number">1.1.1.</span> <span class="nav-text">cmake 构建可执行文件的最基本要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单个源文件的-cmake-构建"><span class="nav-number">1.1.2.</span> <span class="nav-text">单个源文件的 cmake 构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定项目名"><span class="nav-number">1.1.3.</span> <span class="nav-text">指定项目名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改默认编译器为指定的编译器"><span class="nav-number">1.1.4.</span> <span class="nav-text">修改默认编译器为指定的编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定了项目名和编译器的-cmake"><span class="nav-number">1.1.5.</span> <span class="nav-text">指定了项目名和编译器的 cmake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单版本的多文件多目录的-cmake-构建"><span class="nav-number">1.1.6.</span> <span class="nav-text">简单版本的多文件多目录的 cmake 构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单目录，多文件"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">单目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录，多文件"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">多目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录的-cmake-构建（直接编译方式）"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">多目录的 cmake 构建（直接编译方式）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置编译模式-Debug-Release-等"><span class="nav-number">1.1.7.</span> <span class="nav-text">设置编译模式(Debug, Release 等)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
