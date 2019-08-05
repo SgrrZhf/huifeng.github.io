@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="ihuifeng">
 <meta property="og:description" content="本文将记录我的 cmake 学习历程. 使用的版本是 v3.10. 更多信息请参考 cmake 官方文档 v3.10，版本会随时间变动, 如有冲突的地方, 以官方文档为准。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-31T16:19:26.897Z">
+<meta property="og:updated_time" content="2019-08-05T15:53:24.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmake学习笔记">
 <meta name="twitter:description" content="本文将记录我的 cmake 学习历程. 使用的版本是 v3.10. 更多信息请参考 cmake 官方文档 v3.10，版本会随时间变动, 如有冲突的地方, 以官方文档为准。">
@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-01 00:19:26" itemprop="dateModified" datetime="2019-08-01T00:19:26+08:00">2019-08-01</time>
+                <time title="修改时间：2019-08-05 23:53:24" itemprop="dateModified" datetime="2019-08-05T23:53:24+08:00">2019-08-05</time>
               </span>
             
           
@@ -466,6 +466,7 @@
  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"><span class="keyword">project</span>(per_and_com)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER clang)</span><br><span class="line"><span class="keyword">aux_source_directory</span>(. DIR_SRCS) <span class="comment"># 添加顶层目录下的源文件到变量 DIR_SRCS</span></span><br><span class="line"><span class="keyword">aux_source_directory</span>(./combination DIR_SRCS) <span class="comment"># 添加 combination 中的源文件到变量 DIR_SRCS</span></span><br><span class="line"><span class="keyword">include_directories</span>(./combination) <span class="comment"># 添加头文件查找目录到 Property INCLUDE_DRECTORIES 中</span></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> <span class="variable">$&#123;DIR_SRCS&#125;</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="多目录的-cmake-构建-编译成库-再链接的模式"><a href="#多目录的-cmake-构建-编译成库-再链接的模式" class="headerlink" title="多目录的 cmake 构建(编译成库, 再链接的模式)"></a>多目录的 cmake 构建(编译成库, 再链接的模式)</h4><p>待补充</p>
 <h3 id="设置编译模式-Debug-Release-等"><a href="#设置编译模式-Debug-Release-等" class="headerlink" title="设置编译模式(Debug, Release 等)"></a>设置编译模式(Debug, Release 等)</h3><ol>
 <li><code>CMAKE_BUILD_TYPE</code>,指定一种编译模式<br> 默认值为空, 可选值有<code>Debug</code>,<code>Release</code>,<code>RelWithDebInfo</code>和<code>MinSizeRel</code>.与这四个参数对应的还有四个变量, 它们是<code>CMAKE_&lt;LANG&gt;_FLAGS_[DEBUG|RELEASE|RELWITHDEBINFO|MINSIZEREL]</code>. 例如, 如果设置了<code>CMAKE_BUILD_TYPE</code>为<code>Debug</code>, 那么<code>CMAKE_&lt;LANG&gt;_FLAGS_DEBUG</code>就会被添加到<code>CMAKE_&lt;LANG&gt;_FLAGS</code>中.</li>
 <li><code>CMAKE_&lt;LANG&gt;_FLAGS</code>, 传递给编译器的所有参数<br> 参数包括但不限定于<code>-Wall</code>, <code>-Og</code>等等这些参数, gcc 用户可以参考<a href="https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html" target="_blank" rel="noopener">GCC Option Summary</a></li>
@@ -473,6 +474,13 @@
  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_BUILD_TYPE <span class="string">"Debug"</span>) <span class="comment"># 设置成 Debug 模式</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_FLAGS_DEBUG <span class="string">"$&#123;CMAKE_C_FLAGS_DEBUG&#125; -Og -g"</span>) <span class="comment"># 为 Debug 模式对应的变量添加 -g -Og 等参数</span></span><br></pre></td></tr></table></figure>
 <p> 在 v3.10 环境下, <code>CMAKE_C_FLAGS_DEBUG</code>默认值就是 “-g”, 所以不加也可以, 但是为了清楚, 还是显示的添加了 “-g”.<br> 同理可以将编译选项设置成 Release 等其他的模式, 并自定义编译选项从而达到想要的编译效果.</p>
 </li>
+</ol>
+<h2 id="重要的变量"><a href="#重要的变量" class="headerlink" title="重要的变量"></a>重要的变量</h2><h3 id="路径相关"><a href="#路径相关" class="headerlink" title="路径相关"></a>路径相关</h3><ol>
+<li>CMAKE_SOURCE_DIR<br> 最顶层的源文件路径</li>
+<li>CMAKE_CURRENT_SOURCE_DIR<br> 当前正在处理的源文件的路径(不是很理解, 有待进一步实验)</li>
+<li>CMAKE_BINARY_DIR<br> 最顶层的编译路径<br> <strong>如果是新建了<code>build</code>, 然后进入到<code>build</code>执行<code>cmake ..</code>, 那么这个变量的值是<code>build</code>目录</strong></li>
+<li>CMAKE_CURRENT_BINARY_DIR<br> 当前正在处理的二进制文件路径(不是很理解, 有待进一步实验)</li>
+<li>CMAKE_RUNTIME_OUTPUT_DIRECTORY<br> 放置编译后的可执行文件的路径, 需要手动设置, 与之相关联的有一个旧的变量<code>EXECUTABLE_OUTPUT_PATH</code></li>
 </ol>
 
       
@@ -704,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMAKE-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">CMAKE 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">1.1.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake-构建可执行文件的最基本要素"><span class="nav-number">1.1.1.</span> <span class="nav-text">cmake 构建可执行文件的最基本要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单个源文件的-cmake-构建"><span class="nav-number">1.1.2.</span> <span class="nav-text">单个源文件的 cmake 构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定项目名"><span class="nav-number">1.1.3.</span> <span class="nav-text">指定项目名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改默认编译器为指定的编译器"><span class="nav-number">1.1.4.</span> <span class="nav-text">修改默认编译器为指定的编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定了项目名和编译器的-cmake"><span class="nav-number">1.1.5.</span> <span class="nav-text">指定了项目名和编译器的 cmake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单版本的多文件多目录的-cmake-构建"><span class="nav-number">1.1.6.</span> <span class="nav-text">简单版本的多文件多目录的 cmake 构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单目录，多文件"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">单目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录，多文件"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">多目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录的-cmake-构建（直接编译方式）"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">多目录的 cmake 构建（直接编译方式）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置编译模式-Debug-Release-等"><span class="nav-number">1.1.7.</span> <span class="nav-text">设置编译模式(Debug, Release 等)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMAKE-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">CMAKE 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">1.1.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake-构建可执行文件的最基本要素"><span class="nav-number">1.1.1.</span> <span class="nav-text">cmake 构建可执行文件的最基本要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单个源文件的-cmake-构建"><span class="nav-number">1.1.2.</span> <span class="nav-text">单个源文件的 cmake 构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定项目名"><span class="nav-number">1.1.3.</span> <span class="nav-text">指定项目名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改默认编译器为指定的编译器"><span class="nav-number">1.1.4.</span> <span class="nav-text">修改默认编译器为指定的编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定了项目名和编译器的-cmake"><span class="nav-number">1.1.5.</span> <span class="nav-text">指定了项目名和编译器的 cmake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单版本的多文件多目录的-cmake-构建"><span class="nav-number">1.1.6.</span> <span class="nav-text">简单版本的多文件多目录的 cmake 构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单目录，多文件"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">单目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录，多文件"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">多目录，多文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录的-cmake-构建（直接编译方式）"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">多目录的 cmake 构建（直接编译方式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多目录的-cmake-构建-编译成库-再链接的模式"><span class="nav-number">1.1.6.4.</span> <span class="nav-text">多目录的 cmake 构建(编译成库, 再链接的模式)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置编译模式-Debug-Release-等"><span class="nav-number">1.1.7.</span> <span class="nav-text">设置编译模式(Debug, Release 等)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的变量"><span class="nav-number">1.2.</span> <span class="nav-text">重要的变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路径相关"><span class="nav-number">1.2.1.</span> <span class="nav-text">路径相关</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
