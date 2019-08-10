@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://ihuifeng.cc/2019/07/25/cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-08-05T15:53:24.449Z</lastmod>
+    <lastmod>2019-08-10T04:07:01.430Z</lastmod>
     <data>
         <display>
         <title>cmake学习笔记</title>
@@ -25,7 +25,7 @@
     
   <url>
     <loc>https://ihuifeng.cc/2019/07/27/%E6%8A%98%E8%85%BE%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/</loc>
-    <lastmod>2019-08-01T08:07:45.000Z</lastmod>
+    <lastmod>2019-08-10T03:31:08.180Z</lastmod>
     <data>
         <display>
         <title>折腾终端主题颜色</title>
@@ -73,6 +73,28 @@
     
     
   <url>
+    <loc>https://ihuifeng.cc/2018/10/20/Hal-Delay%E5%9C%A8FreeRTOS%E4%B8%8B%E6%97%A0%E6%B3%95%E8%B7%B3%E5%87%BA%E7%9A%84/</loc>
+    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
+    <data>
+        <display>
+        <title>Hal_Delay在FreeRTOS下无法跳出的</title>
+        <pubTime>2018-10-20T06:21:39.000Z</pubTime>
+        
+        <tag>STM32</tag>
+         
+        <tag>arm</tag>
+         
+         
+           
+             
+              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ihuifeng.cc/2018/11/25/FreeRTOS%E4%B8%AD%E5%88%A9%E7%94%A8Binary-Sepahore-%E5%81%9A%E8%B5%84%E6%BA%90%E4%BF%9D%E6%8A%A4/</loc>
     <lastmod>2019-07-26T01:28:58.514Z</lastmod>
     <data>
@@ -95,21 +117,21 @@
 
     
   <url>
-    <loc>https://ihuifeng.cc/2018/10/20/Hal-Delay%E5%9C%A8FreeRTOS%E4%B8%8B%E6%97%A0%E6%B3%95%E8%B7%B3%E5%87%BA%E7%9A%84/</loc>
+    <loc>https://ihuifeng.cc/2018/10/09/U-BOOT%E7%BC%96%E8%AF%91%E7%A7%BB%E6%A4%8D%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</loc>
     <lastmod>2019-07-26T01:28:58.514Z</lastmod>
     <data>
         <display>
-        <title>Hal_Delay在FreeRTOS下无法跳出的</title>
-        <pubTime>2018-10-20T06:21:39.000Z</pubTime>
+        <title>U-BOOT编译移植遇到的坑</title>
+        <pubTime>2018-10-09T09:28:58.000Z</pubTime>
         
-        <tag>STM32</tag>
-         
         <tag>arm</tag>
+         
+        <tag>u-boot</tag>
          
          
            
              
-              <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+              <breadCrumb title="u-boot" url="https://ihuifeng.cc/categories/u-boot/"/>
           
         </display>
     </data>
@@ -141,28 +163,6 @@
 
     
   <url>
-    <loc>https://ihuifeng.cc/2018/10/09/U-BOOT%E7%BC%96%E8%AF%91%E7%A7%BB%E6%A4%8D%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</loc>
-    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
-    <data>
-        <display>
-        <title>U-BOOT编译移植遇到的坑</title>
-        <pubTime>2018-10-09T09:28:58.000Z</pubTime>
-        
-        <tag>arm</tag>
-         
-        <tag>u-boot</tag>
-         
-         
-           
-             
-              <breadCrumb title="u-boot" url="https://ihuifeng.cc/categories/u-boot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://ihuifeng.cc/2018/10/13/linux-kernel%E7%BC%96%E8%AF%91%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</loc>
     <lastmod>2019-07-26T01:28:58.514Z</lastmod>
     <data>
@@ -178,26 +178,6 @@
            
              
               <breadCrumb title="linux" url="https://ihuifeng.cc/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ihuifeng.cc/2018/07/30/ssh%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
-    <data>
-        <display>
-        <title>ssh及其衍生工具的使用</title>
-        <pubTime>2018-07-30T07:50:00.000Z</pubTime>
-        
-        <tag>Tools</tag>
-         
-         
-           
-             
-              <breadCrumb title="Tools" url="https://ihuifeng.cc/categories/Tools/"/>
           
         </display>
     </data>
@@ -242,6 +222,26 @@
            
              
               <breadCrumb title="MCU" url="https://ihuifeng.cc/categories/MCU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ihuifeng.cc/2018/07/30/ssh%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-07-26T01:28:58.514Z</lastmod>
+    <data>
+        <display>
+        <title>ssh及其衍生工具的使用</title>
+        <pubTime>2018-07-30T07:50:00.000Z</pubTime>
+        
+        <tag>Tools</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tools" url="https://ihuifeng.cc/categories/Tools/"/>
           
         </display>
     </data>
