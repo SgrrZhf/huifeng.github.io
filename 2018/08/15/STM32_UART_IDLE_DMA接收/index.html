@@ -95,7 +95,7 @@
 </script>
 
   <meta name="description" content="USART是一个很常用的外设，很多情况下，使用USART接收帧数据的时候并不知道需要接收的帧数据有多长，例如Modbus协议帧，或者AT指令的响应帧，这时就需要接收方主动识别帧结束。STM32的USART外设有一个功能就是IDLE中断，在USART接收到数据后出现空闲帧就会触发。通过IDLE中断配合DMA接收理论上可以完美实现USART不定长数据的接收。但是在实际操作中我却遇到了IDLE中断异常触">
-<meta name="keywords" content="STM32,arm,USART">
+<meta name="keywords" content="arm,STM32,USART">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STM32 UART IDLE中断异常的一种">
 <meta property="og:url" content="https://ihuifeng.cc/2018/08/15/STM32_UART_IDLE_DMA接收/index.html">
@@ -472,9 +472,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/STM32/" rel="tag"># STM32</a>
-          
             <a href="/tags/arm/" rel="tag"># arm</a>
+          
+            <a href="/tags/STM32/" rel="tag"># STM32</a>
           
             <a href="/tags/USART/" rel="tag"># USART</a>
           
@@ -571,7 +571,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -641,7 +641,11 @@
         
           
         
-        <span class="site-state-item-count">15</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
