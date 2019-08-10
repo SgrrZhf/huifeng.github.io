@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="ihuifeng">
 <meta property="og:description" content="本文是我重看 ycm 仓库下的 readme 后学到的方法, 就是使用 CMake 生成的 compile_commands.json 来做补全的配置参数, 而不需要手动编辑 .ycm_extra_conf.py. 这种方法同样可以用在 vscode 的 C/C++ 插件中. 如果使用 Make 构建, 那么需要使用第三方的工具 compiledb 来辅助生成 compile_commands.j">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T07:44:49.368Z">
+<meta property="og:updated_time" content="2019-08-10T07:48:10.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++编程实现精准的语义级补全">
 <meta name="twitter:description" content="本文是我重看 ycm 仓库下的 readme 后学到的方法, 就是使用 CMake 生成的 compile_commands.json 来做补全的配置参数, 而不需要手动编辑 .ycm_extra_conf.py. 这种方法同样可以用在 vscode 的 C/C++ 插件中. 如果使用 Make 构建, 那么需要使用第三方的工具 compiledb 来辅助生成 compile_commands.j">
@@ -362,7 +362,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 14:46:57 / 修改时间：15:44:49" itemprop="dateCreated datePublished" datetime="2019-08-10T14:46:57+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-10 14:46:57 / 修改时间：15:48:10" itemprop="dateCreated datePublished" datetime="2019-08-10T14:46:57+08:00">2019-08-10</time>
             </span>
           
 
@@ -430,9 +430,9 @@
 <h2 id="Make-生成-compile-commands-json-文件"><a href="#Make-生成-compile-commands-json-文件" class="headerlink" title="Make 生成 compile_commands.json 文件"></a>Make 生成 compile_commands.json 文件</h2><p>Makefile 在原生是不能生成 compile_commands.json 文件的, 需要使用第三方工具 compiledb, 直接通过 pip 进行安装即可. 安装完成后使用如下命令进行编译, 就可以在当前路径下生成 compile_commands.json 文件. 更多使用方式见 <a href="https://pypi.org/project/compiledb/" target="_blank" rel="noopener">compiledb</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compiledb make</span><br></pre></td></tr></table></figure>
 <h2 id="让-ycm-使用-compile-commands-json-文件"><a href="#让-ycm-使用-compile-commands-json-文件" class="headerlink" title="让 ycm 使用 compile_commands.json 文件"></a>让 ycm 使用 compile_commands.json 文件</h2><p>如果工作主目录下没有 .ycm_extra_conf.py 文件的话, ycm 会自动查找(且向上层目录递归) compile_commands.json 文件. 所以该文件最好放在工作主目录下. 详情请见 <a href="https://github.com/ycm-core/YouCompleteMe#c-family-semantic-completion" target="_blank" rel="noopener">C-family Semantic Completion</a></p>
-<h2 id="让-vscode-的-C-C-插件使用-compile-commands-json-文件"><a href="#让-vscode-的-C-C-插件使用-compile-commands-json-文件" class="headerlink" title="让 vscode 的 C/C++ 插件使用 compile_commands.json 文件"></a>让 vscode 的 C/C++ 插件使用 compile_commands.json 文件</h2><p>在打开工程后, 按<code>Ctrl+shift+p</code>打开命令输入栏, 输入<code>C/C++: Edit Configurations</code>并回车, 打开<code>c_cpp_properties.json</code>文件, 通常 vscode 会查找到你的工作目录下有 compile_commands.json 文件并弹出通知, 询问是否添加. 手动添加的话就编辑<code>c_cpp_properties.json</code>文件, 为 configuration 添加一个新 key 和 value, key 是 compileCommands, value 是它的路径.</p>
+<h2 id="让-vscode-的-C-C-插件使用-compile-commands-json-文件"><a href="#让-vscode-的-C-C-插件使用-compile-commands-json-文件" class="headerlink" title="让 vscode 的 C/C++ 插件使用 compile_commands.json 文件"></a>让 vscode 的 C/C++ 插件使用 compile_commands.json 文件</h2><p>在打开工程后, 按<code>Ctrl+shift+p</code>打开命令输入栏, 输入<code>C/C++: Edit Configurations</code>并回车, 打开<code>c_cpp_properties.json</code>文件. 通常 vscode 会查找到你的工作目录下有 compile_commands.json 文件并弹出通知, 询问是否添加. 手动添加的话就编辑<code>c_cpp_properties.json</code>文件, 为 configuration 添加一个新 key 和 value, key 是 compileCommands, value 是它的路径.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"compileCommands": "$&#123;workspaceFolder&#125;/compile_commands.json"</span><br></pre></td></tr></table></figure>
-<h2 id="让-ALE-使用-compile-commands-json-文件"><a href="#让-ALE-使用-compile-commands-json-文件" class="headerlink" title="让 ALE 使用 compile_commands.json 文件"></a>让 ALE 使用 compile_commands.json 文件</h2><p>为 .vimrc 文件添加让 ALE 自动寻找 compile_commands.json 文件的配置如下, 更多 ALE 相关的内容参考 <a href="https://github.com/dense-analysis/ale#asynchronous-lint-engine---" target="_blank" rel="noopener">Asynchronous Lint Engine</a></p>
+<h2 id="让-ALE-使用-compile-commands-json-文件"><a href="#让-ALE-使用-compile-commands-json-文件" class="headerlink" title="让 ALE 使用 compile_commands.json 文件"></a>让 ALE 使用 compile_commands.json 文件</h2><p>为 .vimrc 文件添加让 ALE 自动寻找 compile_commands.json 文件的配置, 如下. 更多 ALE 相关的内容参考 <a href="https://github.com/dense-analysis/ale#asynchronous-lint-engine---" target="_blank" rel="noopener">Asynchronous Lint Engine</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot; 开启解析 compile_commands 的功能</span><br><span class="line">let g:ale_c_parse_compile_commands = 1</span><br><span class="line">&quot; ale 将在工程目录下的 build 和 . 中搜索 compile_commands.json</span><br><span class="line">let g:ale_c_build_dir_names = [&apos;build&apos;,&apos;.&apos;]</span><br><span class="line">&quot; 为 C 语言指定一个 代码检查工具</span><br><span class="line">let g:ale_linters = &#123;</span><br><span class="line">            \   &apos;python&apos;: [&apos;pylint&apos;],</span><br><span class="line">            \   &apos;c&apos;: [&apos;clangd&apos;],</span><br><span class="line">            \&#125;</span><br></pre></td></tr></table></figure>
 
       
